@@ -1,0 +1,10 @@
+<!--pages/feedback/feedback.wxml-->
+<view class='feedback-page'>
+  <view class='feedback-textarea'>
+    <textarea bindinput='inputVal' placeholder='有什么意见尽情畅言吧' maxlength='-1'>
+    </textarea>
+  </view>
+  <view class='feedback-btn-view'>
+    <view bindtap='feedbackSubmit' class='feedback-btn'>提交反馈</view>
+  </view>
+</view>

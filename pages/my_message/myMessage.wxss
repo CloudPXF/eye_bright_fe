@@ -1,0 +1,75 @@
+/* pages/my_message/myMessage.wxss */
+.my-message-page {
+  min-height: 100vh;
+  background: #f4f4f4;
+}
+.my-mesasge-item {
+  background: #fff;
+  padding: 0 35rpx;
+  height: 105rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 2rpx solid #f4f4f4;
+} 
+.my-message-item-title {
+  font-size: 30rpx;
+  color: #333;
+}
+.my-message-item-content {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+.my-message-content-avatar {
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+}
+.my-message-item-content-input {
+  font-size: 28rpx;
+  color: #333;
+  width: 180rpx;
+  text-align: right;
+  position: relative;
+}
+.my-message-item-content-picker {
+  font-size: 28rpx;
+  color: #333;
+  min-width: 280rpx;
+  text-align: right;
+  min-height: 60rpx;
+  line-height: 60rpx;
+  margin-left: auto;
+  box-sizing: border-box;
+  position: relative;z-index: 2;
+  /* padding-right: 30rpx; */
+}
+.my-message-item-content-picker-after {
+  display: flex;
+  align-items: center;
+  /* margin-left: 18rpx; */
+  position: absolute;
+  right: 34rpx;
+}
+.my-message-item-content-picker-after image {
+  width: 18rpx;
+  height: 10rpx;
+}
+
+.my-message-btn-view {
+  width: 100%;
+  position: absolute;
+  bottom: 98rpx;
+}
+.my-message-btn {
+  width: 678rpx;
+  color: #fff;
+  height: 84rpx;
+  line-height: 84rpx;
+  text-align: center;
+  background: #0064A0;
+  font-size: 32rpx;
+  border-radius: 42rpx;
+  margin-left: auto;
+  margin-right: auto;
+}

@@ -1,0 +1,30 @@
+/* pages/getOpenid/getOpenid.wxss */
+/* 授权 */
+.container {
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  background: #fff;
+  z-index: 101;
+}
+.userinfo {
+  margin-top: 40rpx;
+}
+.userinfo button {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  background: #0064A0;
+  color: #fff;
+}
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+.userinfo-nickname {
+  color: #aaa;
+  text-align: center;
+}

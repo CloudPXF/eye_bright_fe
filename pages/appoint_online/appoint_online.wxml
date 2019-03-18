@@ -1,0 +1,48 @@
+<!--pages/appoint_online/appoint_online.wxml-->
+<view class='appointol'>
+  <view class='appointol-item'>
+    <view class='appointol-item-icon'><image src='../../images/appoint_hospital.png'></image></view>
+    <view class='appointol-item-title'>诊所</view>
+    <view class='appointol-item-content'>{{storeMessage.name}}</view>
+  </view>
+  <view class='appointol-item'>
+    <view class='appointol-item-icon'><image src='../../images/appoint_clock.png'></image></view>
+    <view class='appointol-item-title'>时间</view>
+    <view class='appointol-item-content' style='color: #ED5656'>{{timeYear}}年{{timeMonth}}月{{timeDate}}日 {{hour}}</view>
+  </view>
+  <view class='appointol-item'>
+    <view class='appointol-item-icon'><image src='../../images/appoint_doctor.png'></image></view>
+    <view class='appointol-item-title'>医生</view>
+    <view class='appointol-item-content'>{{d_name}}</view>
+  </view>
+  <view class='appointol-item' style='margin-top: 12rpx;'>
+    <view class='appointol-item-icon'><image src='../../images/appoint_patient.png'></image></view>
+    <view class='appointol-item-title'>就诊人</view>
+    <view class='appointol-item-content'><input wx:if='{{!ifShowModal}}' bindinput='inputPatient' value='{{nameInput}}' class='appointol-item-content-input' placeholder='请输入'></input></view>
+  </view>
+  <view class='appointol-item'>
+    <view class='appointol-item-icon'><image src='../../images/appoint_tel.png'></image></view>
+    <view class='appointol-item-title'>联系电话</view>
+    <view class='appointol-item-content'><input wx:if='{{!ifShowModal}}' bindinput='inputTel' value='{{telInput}}' class='appointol-item-content-input' placeholder='请输入'></input></view>
+  </view>
+  <view style='height:60rpx;line-height: 60rpx;font-size: 24rpx;color: #999;padding-left: 36rpx;'>病情/就诊需求描述（必填）</view>
+  <view class='appointol-item-textarea'>
+    <textarea wx:if='{{!ifShowModal}}' bindinput='inputText' value='{{declaration}}' auto-height='' placeholder='请尽量相信的描述就诊人的症状及病情，以便我们更妥善的为您做就诊前的必要准备'></textarea>
+  </view>
+  <view bindtap='submitAppointment' class='appointol-btn'>
+    提交预约
+  </view>
+
+  <view wx:if="{{ifShowModal}}" class='appointol-modal'>
+    <view class='appoint-modal-bg'></view>
+    <view class='appoint-modal-content'>
+      <view class='appoint-modal-content-title'>提示</view>
+      <view class='appoint-modal-content-text'>
+        <text>1.预约已提交，请等待短信/电话确认
+        2.为获悉就诊详情，或特殊情况需调整时间，将电话与您沟通
+        3.确认电话为020-62316808/1802860178，请保持电话畅通</text>
+      </view>
+      <view bindtap='hideModal' class='appoint-modal-content-btn'>我知道了</view>
+    </view>
+  </view>
+</view>

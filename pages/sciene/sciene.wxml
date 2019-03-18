@@ -1,0 +1,48 @@
+<!--pages/sciene/sciene.wxml-->
+<import src="../../wxParse/wxParse.wxml"/>
+<view class='sciene-page'>
+  <!-- 搜索框 -->
+  <view class='sciene-search'>
+    <view class='sciene-search-box'>
+      <image src='../../images/icon_search.png'></image>
+      <input bindblur='scieneSearching' placeholder='搜疾病/症状/文章'></input>
+    </view>
+  </view>
+  <!-- 关键词 -->
+  <view class='sciene-search-word'>
+    <view wx:if="{{(!isScieneShowMore && index < 6) || isScieneShowMore}}" wx:for="{{textureWordList}}" bindtap='chooseKeyWord' data-id='{{index}}' data-cid="{{item.id}}" class='sciene-search-word-item {{item.isChosen ? "sciene-search-word-item-on" : ""}}'>{{item.crux}}</view>
+    <view bindtap='showScieneCruxMore' wx:if="{{textureWordList.length > 6}}" class='sciene-show-more'>{{isScieneShowMore ? "收起" : "展开更多"}}</view>
+  </view>
+  <!-- 热门文章 -->
+  <view wx:if="{{textureList.length > 0}}" class='texture-list'>
+    <view class='request-list-title'>
+      <view class='request-list-title-before'></view>
+      <view class='request-list-title-text'>所有文章</view>
+      <!-- <view class='request-list-title-after'>更多</view> -->
+    </view>
+    <view wx:for="{{textureList}}" bindtap='toDetail' data-id="{{item.id}}" class='texture-item'>
+      <view class='texture-item-content'>
+        <view class='texture-item-content-left'>
+          <view class='texture-item-content-title'>
+            {{item.title}}
+          </view>
+          <view class='texture-item-content-text'>
+            <!-- <template is="wxParse" data="{{wxParseData:contentList[index].nodes}}" /> -->
+            {{item.abstract}}
+          </view>
+        </view>
+        <view class='texture-item-content-img'>
+          <image src='{{config.host + item.photo}}'></image>
+        </view>
+      </view>
+      <view class='texture-item-message'>
+        <view wx:if="{{item.crux}}" class='texture-item-message-word'>{{item.crux.crux}}</view>
+        <view class='texture-item-message-doctor'>{{item.doctor_info.d_name}}</view>
+        <view class='texture-item-message-doctor-in'>{{item.doctor_info.title}}</view>
+      </view>
+    </view>
+  </view>
+  <view class='texture-list-last'>
+    到底啦~
+  </view>
+</view>

@@ -1,0 +1,41 @@
+<!--pages/request_detail/request_detail.wxml-->
+<view class='request-detail-page'>
+  <view class='request-detail-question'>
+    <view class='request-detail-question-text'>
+      <image src='../../images/question.png'></image>
+      <text>{{problemDetail.problem}}</text>
+    </view>
+    <view class='request-detail-question-img'>
+      <image mode='widthFix' wx:if="{{problemDetail.pimg1}}" src='{{config.host + problemDetail.pimg1}}'></image>
+      <image mode='widthFix' wx:if="{{problemDetail.pimg2}}" src='{{config.host + problemDetail.pimg2}}'></image>
+      <image mode='widthFix' wx:if="{{problemDetail.pimg3}}" src='{{config.host + problemDetail.pimg3}}'></image>
+    </view>
+    <view class='request-detial-question-word'>
+      <view class='request-detail-question-word-item'>{{problemDetail.crux.crux}}</view>
+    </view>
+  </view>
+  <view class='request-detail-answer'>
+    <view class='request-detail-answer-text'>
+      <image src='../../images/answer.png'></image>
+      <text>{{problemDetail.answer}}</text>
+    </view>
+    <view class='request-detail-answer-img'>
+      <image mode='widthFix' wx:if="{{problemDetail.aimg1}}" src='{{config.host + problemDetail.aimg1}}'></image>
+      <image mode='widthFix' wx:if="{{problemDetail.aimg2}}" src='{{config.host + problemDetail.aimg2}}'></image>
+      <image mode='widthFix' wx:if="{{problemDetail.aimg3}}" src='{{config.host + problemDetail.aimg3}}'></image>
+    </view>
+  </view>
+  <view bindtap='toDoctorDetail' class='request-detail-doctor'>
+    <view class='request-detail-doctor-avatar'>
+      <image src='{{config.host + problemDetail.doctor_info.photo}}'></image>
+    </view>
+    <view class='request-detail-doctor-message'>
+      <view class='request-detail-doctor-message-name'>
+        {{problemDetail.doctor_info.d_name}}<text>{{problemDetail.doctor_info.title}}</text>
+      </view>
+      <view wx:if="{{problemDetail.doctorCrux}}" class='request-detail-doctor-message-ablity'>
+        <text>擅长：</text><text style='color: #666;' wx:for="{{problemDetail.doctorCrux}}">{{item.crux}}{{index != problemDetail.doctorCrux.length-1 ? "、" : ""}}</text>
+      </view>
+    </view> 
+  </view>
+</view>

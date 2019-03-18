@@ -1,0 +1,19 @@
+<!--pages/my_report/myReport.wxml-->
+<view class='my-report-page'>
+  <view wx:if="{{reportList.length > 0}}" wx:for="{{reportList}}" bindtap="toReportDetail" data-id="{{item.id}}" class='report-list'>
+    <view class='report-item'>
+      <image class='report-item-bg' src='../../images/report_List.png'></image>
+      <view class='report-item-message'>
+        <view class='report-item-message-name'>{{item.name}}</view>
+        <view class='report-item-message-sex'>{{item.sex}}</view>
+      </view>
+      <view class='report-item-title'>
+        <view class='report-item-title-text'>{{item.p_name}}</view>
+        <view class='report-item-title-time'>{{item.create_time}}</view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{reportList.length == 0}}" class='report-null'>
+    <image src='../../images/no_data.png'></image>
+  </view>
+</view>

@@ -1,0 +1,61 @@
+<!--pages/publish/publish.wxml-->
+<view class='publish-page'>
+  <view class='publish-textarea'>
+    <textarea bindinput='inputText' placeholder='{{identify == 0 ? "输入问题，请尽可能详细的描述你的问题！" : "请输入..."}}' maxlength='-1'></textarea>
+  </view>
+  <!-- 上传图片 -->
+  <view class='publish-add'>
+    <view class='publish-add-item'>
+      <view class='publish-add-item-bg' bindtap='uploadImg' data-index="0">
+        <view class='publish-add-item-bg-img'><image src='../../images/add_img.png'></image></view>
+        <view class='publish-add-item-bg-text'>上传图片</view>
+      </view>
+      <view wx:if="{{uploadImgList[0]}}" class='publish-add-item-content'>
+        <image bindtap='deleteImg' data-index="0" class='publish-add-item-content-delete' src='../../images/delete.png'></image>
+        <image class='publish-add-item-content-img' src='{{uploadImgList[0]}}'></image>
+      </view>
+    </view>
+    <view class='publish-add-item'>
+      <view class='publish-add-item-bg' bindtap='uploadImg' data-index="1">
+        <view class='publish-add-item-bg-img'><image src='../../images/add_img.png'></image></view>
+        <view class='publish-add-item-bg-text'>上传图片</view>
+      </view>
+      <view wx:if="{{uploadImgList[1]}}" class='publish-add-item-content'>
+        <image bindtap='deleteImg' data-index="1" class='publish-add-item-content-delete' src='../../images/delete.png'></image>
+        <image class='publish-add-item-content-img' src='{{uploadImgList[1]}}'></image>
+      </view>
+    </view>
+    <view class='publish-add-item'>
+      <view class='publish-add-item-bg' bindtap='uploadImg' data-index="2">
+        <view class='publish-add-item-bg-img'><image src='../../images/add_img.png'></image></view>
+        <view class='publish-add-item-bg-text'>上传图片</view>
+      </view>
+      <view wx:if="{{uploadImgList[2]}}" class='publish-add-item-content'>
+        <image bindtap='deleteImg' data-index="2" class='publish-add-item-content-delete' src='../../images/delete.png'></image>
+        <image class='publish-add-item-content-img' src='{{uploadImgList[2]}}'></image>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{identify == 1}}" class='publish-key'>
+    <view class='publish-key-title'>关键字<text style='color:red;'>(必选)</text></view>
+    <view class='publish-key-choose'>
+      <picker bindchange='chooseKeyWord' range='{{keywordList}}' range-key='crux'>
+        {{keywordChoose ? keywordList[keywordChoose].crux : "请选择"}}
+      </picker>
+      <image src='../../images/select.png'></image>
+    </view>
+  </view>
+  <!--  -->
+  <view class='publish-btn-view'>
+    <view wx:if="{{identify == 0}}" class='publish-status'>
+      <image bindtap='changeOpenStatus' src='../../images/{{open_status ? "choose_on" : "choose_off"}}.png'></image>
+      <view class='publish-status-text' style='{{open_status? "color: #0064A0" : ""}}'>公开<text>（选择“公开”,您的问答将公开显示到“问答”界面）</text></view>
+    </view>
+    <view wx:if="{{identify == 0}}" bindtap='publishQuestion' class='publish-btn'>
+      发布
+    </view>
+    <view wx:if="{{identify == 1}}" bindtap='responseQuestion' class='publish-btn'>
+      回复
+    </view>
+  </view>
+</view>

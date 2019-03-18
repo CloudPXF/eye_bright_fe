@@ -1,0 +1,131 @@
+/* pages/publish/publish.wxss */
+.publish-page {
+  padding-top: 36rpx;
+}
+.publish-textarea {
+  padding: 30rpx 20rpx;
+  border-radius: 10rpx;
+  background: #f2f2f2;
+  width: 638rpx;
+  margin-left: auto;
+  margin-right: auto;
+}
+.publish-textarea textarea {
+  width: 100%;
+  height: 283rpx;
+  font-size: 26rpx;
+  color: #333;
+}
+.publish-add {
+  margin-top: 40rpx;
+  display: flex;
+}
+.publish-add-item {
+  margin-left: 36rpx;
+  position: relative;
+  width: 200rpx;
+  height: 200rpx;
+  background: #f2f2f2;
+  border: 2rpx dashed #666;
+  border-radius: 5rpx;
+}
+.publish-add-item-bg {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+.publish-add-item-bg-img {
+  display: flex;
+  margin-top: 53rpx;
+}
+.publish-add-item-bg-img image {
+  width: 58rpx;
+  height: 58rpx;
+  margin-left: auto;
+  margin-right: auto;
+}
+.publish-add-item-bg-text {
+  font-size: 24rpx;
+  color: #ccc;
+  text-align: center;
+  margin-top: 10rpx;
+}
+.publish-add-item-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+}
+.publish-add-item-content-img {
+  width: 100%;
+  height: 100%;
+}
+.publish-add-item-content-delete {
+  width: 20rpx;
+  height: 18rpx;
+  position: absolute;
+  right: 10rpx;
+  top: 10rpx;
+  z-index: 3;
+}
+.publish-btn {
+  width: 678rpx;
+  height: 84rpx;
+  color: #fff;
+  font-size: 32rpx;
+  line-height: 84rpx;
+  text-align: center;
+  border-radius: 42rpx;
+  background: #0064A0;
+  margin-left: auto;
+  margin-right: auto;
+}
+.publish-btn-view {
+  margin-top: 330rpx;
+}
+.publish-status {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40rpx;
+}
+.publish-status image {
+  width: 34rpx;
+  height: 34rpx;
+  margin-left: 36rpx;
+  margin-right: 10rpx;
+}
+.publish-status-text {
+  font-size: 28rpx;
+  color: #666;
+}
+.publish-status-text text {
+  color: #FF554A;
+  font-size: 22rpx;
+}
+
+.publish-key {
+  display: flex;
+  padding: 40rpx 36rpx;
+  align-items: center;
+  border-bottom: 2rpx solid #f4f4f4;
+}
+.publish-key-title {
+  font-size: 30rpx;
+  color: #333;
+}
+.publish-key-choose {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+.publish-key-choose picker {
+  font-size: 28rpx;
+  color: #8e8e8e;
+}
+.publish-key-choose image {
+  width: 18rpx;
+  height: 10rpx;
+  margin-left: 20rpx;
+}

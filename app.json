@@ -1,0 +1,30 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/request/request",
+    "pages/report/report",
+    "pages/my_report/myReport",
+    "pages/my_message/myMessage",
+    "pages/feedback/feedback",
+    "pages/publish/publish",
+    "pages/my_question/myQuestion",
+    "pages/request_detail/request_detail",
+    "pages/sciene/sciene",
+    "pages/search_result/searchResult",
+    "pages/sciene_detail/scieneDetail",
+    "pages/search_result_d/search_result_d",
+    "pages/appoint/appoint",
+    "pages/doctor_detail/doctor_detail",
+    "pages/appoint_online/appoint_online",
+    "pages/my_appoint/my_appoint",
+    "pages/appointment_detail/appointment_detail",
+    "pages/getOpenid/getOpenid"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  }
+}

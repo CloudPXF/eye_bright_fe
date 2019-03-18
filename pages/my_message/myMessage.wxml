@@ -1,0 +1,53 @@
+<!--pages/my_message/myMessage.wxml-->
+<view class='my-message-page'>
+  <view class='my-mesasge-item' style='height: 138rpx;'>
+    <view class='my-message-item-title'>头像</view>
+    <view class='my-message-item-content'>
+      <image class='my-message-content-avatar' src='{{userInfo.photo}}'></image>
+    </view>
+  </view>
+  <view class='my-mesasge-item'>
+    <view class='my-message-item-title'>姓名</view>
+    <view class='my-message-item-content'>
+      <input class='my-message-item-content-input' bindinput='inputName' value='{{name_input}}' placeholder='请输入'></input>
+    </view>
+  </view>
+  <view class='my-mesasge-item'>
+    <view class='my-message-item-title'>性别</view>
+    <view class='my-message-item-content'>
+      <picker class='my-message-item-content-picker' bindchange='sexChoosing' value='{{sexChoose}}' range='{{sexList}}' range-key='name'>
+        {{sexList[sexChoose].name}}<text decode="{{true}}" space='{{true}}'>&nbsp;&nbsp;&nbsp;</text>
+      </picker>
+      <view class='my-message-item-content-picker-after'><image src='../../images/select.png'></image></view>
+    </view>
+  </view>
+  <view class='my-mesasge-item'>
+    <view class='my-message-item-title'>生日</view>
+    <view class='my-message-item-content'>
+      <picker mode="date" class='my-message-item-content-picker' bindchange='dateChoosing' value='{{dateChoose}}' start="1900-01-01">
+        {{dateChoose}}<text decode="{{true}}" space='{{true}}'>&nbsp;&nbsp;&nbsp;</text>
+      </picker>
+      <view class='my-message-item-content-picker-after'><image src='../../images/select.png'></image></view>
+    </view>
+  </view>
+  <view class='my-mesasge-item'>
+    <view class='my-message-item-title'>地域</view>
+    <view class='my-message-item-content'>
+      <picker mode="region" class='my-message-item-content-picker' bindchange='locationChoosing' value='{{locationChoose}}'>
+        {{locationChoose[0]}} {{locationChoose[1]}} {{locationChoose[2]}}<text decode="{{true}}" space='{{true}}'>&nbsp;&nbsp;&nbsp;</text>
+      </picker>
+      <view class='my-message-item-content-picker-after'><image src='../../images/select.png'></image></view>
+    </view>
+  </view>
+  <view class='my-mesasge-item' style='margin-top:24rpx;'>
+    <view class='my-message-item-title'>联系电话</view>
+    <view class='my-message-item-content'>
+      <input class='my-message-item-content-input' value="{{tel_input}}" bindinput='inputTel' placeholder='请输入'></input>
+    </view>
+  </view>
+  <view class='my-message-btn-view'>
+    <view bindtap='finishMessage' class='my-message-btn'>
+      完善信息
+    </view>
+  </view>
+</view>

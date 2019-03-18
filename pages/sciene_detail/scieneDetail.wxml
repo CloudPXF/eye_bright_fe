@@ -1,0 +1,32 @@
+<!--pages/sciene_detail/scieneDetail.wxml-->
+<import src="../../wxParse/wxParse.wxml"/>
+<view class='sciene-detail'>
+  <view class='sciene-detail-title'>
+    <view class='sciene-detail-title-text'>
+      {{article.title}}
+    </view>
+    <view class='sciene-detail-keyword'>
+      <view class='sciene-detail-keyword-item'>
+        {{article.crux.crux}}
+      </view>
+    </view>
+  </view>
+  <view class='sciene-detail-content'>
+    <view class='sciene-detail-content-text'>
+      <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+    </view>
+  </view>
+  <view bindtap='toDoctorDetail' class='sciene-detail-doctor'>
+    <view class='sciene-detail-doctor-avatar' style='overflow: visible'>
+      <image src='{{config.host + article.doctor_info.photo}}'></image>
+    </view>
+    <view class='sciene-detail-doctor-message'>
+      <view class='sciene-detail-doctor-message-name'>
+        {{article.doctor_info.d_name}}<text>{{article.doctor_info.title}}</text>
+      </view>
+      <view wx:if="{{article.doctorCrux}}" class='sciene-detail-doctor-message-ablity'>
+        <text>擅长：</text><text style='color: #666;' wx:for="{{article.doctorCrux}}">{{item.crux}}{{index != article.doctorCrux.length-1 ? "、" : ""}}</text>
+      </view>
+    </view>
+  </view>
+</view>

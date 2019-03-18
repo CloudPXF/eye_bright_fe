@@ -1,0 +1,127 @@
+/* pages/appoint/appoint.wxss */
+.appoint-page {
+
+}
+.appoint-date {
+  display: flex;
+  align-items: center;
+  height: 80rpx;
+  background: #f4f4f4;
+}
+.appoint-date-before {
+  font-size: 26rpx;
+  color: #333;
+  margin-left: 36rpx;
+}
+.appoint-date-before-img {
+  width: 16rpx;
+  height: 26rpx;
+  margin-right: 19rpx;
+}
+.appoint-date-current {
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 28rpx;
+  color: #333;
+}
+.appoint-date-next {
+  font-size: 26rpx;
+  color: #333;
+  margin-right: 36rpx;
+}
+.appoint-date-next-img {
+  width: 16rpx;
+  height: 26rpx;
+  margin-left: 19rpx;
+}
+
+.doctor-list {
+
+}
+.dotor-item {
+  display: flex;
+  background: #fff;
+  padding: 40rpx 30rpx;
+  border-bottom: 2rpx solid #f4f4f4;
+}
+.doctor-item-avatar {
+  margin-right: 32rpx;
+}
+.doctor-item-avatar image {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+.doctor-item-message {
+  width: 80%;
+}
+.doctor-item-message-main {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.doctor-item-message-main-name {
+  color: #333;
+  font-size: 30rpx;
+  font-weight: bold;
+  max-width: 160rpx;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.doctor-item-message-main-ex{
+  font-size: 22rpx;
+  color: #333;
+  margin-left: 16rpx;
+  max-width: 380rpx;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.doctor-item-message-main-status {
+  background: #0D820A;
+  color: #fff;
+  border-radius: 5rpx;
+  width: 60rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  font-size: 18rpx;
+  text-align: center;
+  margin-left: 10rpx;
+}
+.doctor-item-message-main-word {
+  overflow-x: scroll;
+  white-space: nowrap;
+  max-width: 260rpx;
+  margin-left: auto;
+}
+.doctor-item-message-main-word-item {
+  padding: 0 22rpx;
+  background: #f4f4f4;
+  height: 46rpx;
+  line-height: 46rpx;
+  color: #999;
+  font-size: 22rpx;
+  border-radius: 23rpx;
+  margin-right: 16rpx;
+  white-space: nowrap;
+}
+/* .doctor-item-message-main-word-item:first-child{
+  margin-left: auto;
+} */
+.doctor-item-introduction {
+  font-size: 24rpx;
+  color: #666;
+  margin-top: 17rpx;
+}
+.doctor-item-introduction text{
+  margin: 0
+}
+.doctor-list-none {
+  display: flex;
+  padding-top: 280rpx;
+}
+.doctor-list-none image{
+  width: 284rpx;
+  height: 319rpx;
+  margin-left: auto;
+  margin-right: auto;
+}

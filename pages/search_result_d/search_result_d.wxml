@@ -1,0 +1,36 @@
+<!--pages/search_result_d/search_result_d.wxml-->
+<view class='search-result' style='{{doctorList.length > 0 ? "background: #f4f4f4" : "background: #fff"}}'>
+  <view class='search-result-search'>
+    <view class='search-result-search-box'>
+      <image class='search-result-search-box-icon' src='../../images/icon_search.png'></image>
+      <input bindblur='searchByVal' bindinput='inputSearching' value='{{search_val}}' placeholder='请输入'></input>
+      <image bindtap='deleteSearching' class='search-result-search-box-delete' src='../../images/input_delete.png'></image>
+    </view>
+  </view>
+  <view wx:if="{{doctorList.length > 0}}" class='doctor-list'>
+    <view wx:for="{{doctorList}}" bindtap='toDoctorDetail' class='dotor-item'>
+      <view class='doctor-item-avatar'>
+        <image src='{{config.host + item.photo}}'></image>
+      </view>
+      <view class='doctor-item-message'>
+        <view class='doctor-item-message-main'>
+          <view class='doctor-item-message-main-name'>{{item.d_name}}</view>
+          <view class='doctor-item-message-main-ex'>{{item.title}}</view>
+          <view class='doctor-item-message-main-status' style=' {{item.status == "10" ? "background: ##0D820A" : "background:#ED5656"}}'>{{item.status == "10" ? "可约" : "约满"}}</view>
+        </view>
+        <view class='doctor-item-message-main' style='width: 100%;display: block;overflow-x: scroll;margin-top:10rpx;'>
+          <view wx:for="{{item.crux}}" class='doctor-item-message-main-word-item' style='display: inline-block;'>{{item.crux}}</view>        
+        </view>
+        <view class='doctor-item-introduction'>
+          <text>{{item.speciality}}</text>
+        </view>
+        <view class='doctor-item-introduction'>
+          <text>首诊/复诊：{{item.first}}元/{{item.again}}元</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{doctorList.length == 0}}" class='doctor-list-none'>
+    <image src='../../images/search_none.png'></image>
+  </view>
+</view>

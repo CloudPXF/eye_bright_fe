@@ -1,0 +1,64 @@
+<!--pages/search_result/searchResult.wxml-->
+<import src="../../wxParse/wxParse.wxml"/>
+<view class='search-result'>
+  <view wx:if="{{type == 3}}" class='search-result-search'>
+    <view class='search-result-search-box'>
+      <image class='search-result-search-box-icon' src='../../images/icon_search.png'></image>
+      <input bindinput='inputSearching' bindblur='searchVAl' value='{{inputVal}}' placeholder='请输入'></input>
+      <image bindtap='deleteSearching' class='search-result-search-box-delete' src='../../images/input_delete.png'></image>
+    </view>
+  </view>
+  <!-- 相关问答 -->
+  <view wx:if="{{type != 2 && requestList.length > 0}}" class='request-list'>
+    <view wx:if="{{type == 3}}" class='request-list-title'>
+      <view class='request-list-title-before'></view>
+      <view class='request-list-title-text' style='font-size: 30rpx;'>相关问答</view>
+      <!-- <view class='request-list-title-after'>更多</view> -->
+    </view>
+    <view wx:for="{{requestList}}" bindtap='toQuestionDetail' data-id="{{item.id}}" class='request-item'>
+      <view class='request-item-question'>
+        Q：{{item.problem}}
+      </view>
+      <view class='request-item-answer'>
+        A：{{item.answer}}
+      </view>
+      <view class='request-item-message'>
+        <view class='request-item-message-word'>{{item.crux.crux}}</view>
+        <view class='request-item-message-doctor'>{{item.doctor_info.d_name}}</view>
+        <view class='request-item-message-doctor-in'>{{item.doctor_info.title}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 相关文章 -->
+  <view wx:if="{{type != 1 && textureList.length > 0}}" class='texture-list'>
+    <view  wx:if="{{type == 3}}" class='request-list-title'>
+      <view class='request-list-title-before'></view>
+      <view class='request-list-title-text' style='font-size: 30rpx;'>相关文章</view>
+      <!-- <view class='request-list-title-after'>更多</view> -->
+    </view>
+    <view wx:for="{{textureList}}" bindtap='toTextureDetail' data-id="{{item.id}}" class='texture-item'>
+      <view class='texture-item-content'>
+        <view class='texture-item-content-left'>
+          <view class='texture-item-content-title'>
+            {{item.title}}
+          </view>
+          <view class='texture-item-content-text'>
+            <!-- <template is="wxParse" data="{{wxParseData:textureContentList[index].nodes}}" /> -->
+            {{item.abstract}}
+          </view>
+        </view>
+        <view class='texture-item-content-img'>
+          <image src='{{ config.host + item.photo}}'></image>
+        </view>
+      </view>
+      <view class='texture-item-message'>
+        <view class='texture-item-message-word'>{{item.crux.crux}}</view>
+        <view class='texture-item-message-doctor'>{{item.doctor_info.d_name}}</view>
+        <view class='texture-item-message-doctor-in'>{{item.doctor_info.title}}</view>
+      </view>
+    </view>
+  </view>
+  <view class='search-result-bottom'>
+    到底啦！
+  </view>
+</view>

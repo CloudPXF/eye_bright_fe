@@ -1,0 +1,64 @@
+/* pages/my_appoint/my_appoint.wxss */
+.my-appoint {
+  background: #f4f4f4;
+  min-height: 100vh;
+}
+.appointment-list {
+  padding-top: 20rpx;
+}
+.appointment-item {
+  margin-bottom: 20rpx;
+  background: #fff;
+}
+.appointment-item-title {
+  display: flex;
+  align-items: center;
+  padding: 0 35rpx;
+  height: 86rpx;
+  border-bottom: 2rpx solid #f2f2f2;
+}
+.appointment-item-title-before {
+  font-size: 28rpx;
+  color: #999;
+
+}
+.appointment-item-title-content {
+  font-size: 28rpx;
+  color: #333;
+}
+.appointment-item-title-status {
+  margin-left: auto;
+  color: #333;
+  font-size: 28rpx;
+}
+.appointment-item-content {
+  padding: 36rpx 0;
+  display: flex;
+  align-items: center;
+}
+.appointment-item-content-message {
+  padding-left: 36rpx;
+  
+}
+.appointment-item-content-item {
+  display: flex;
+}
+.appointment-item-content-before {
+  font-size: 28rpx;
+  color: #999;
+}
+.appointment-item-content-text {
+  font-size: 28rpx;
+  color: #333;
+  margin-left: 39rpx;
+}
+.appointment-item-content-to {
+  width: 16rpx;
+  height: 26rpx;
+  margin-left: auto;
+  margin-right: 36rpx;
+}
+.appointment-item-content-to image{
+  width: 16rpx;
+  height: 26rpx;
+}

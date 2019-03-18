@@ -1,0 +1,134 @@
+/* pages/apointment_detail/apointment_detail.wxss */
+.appointment-detail {
+  min-height: 100vh;
+  padding-bottom:60rpx;
+  background: #f4f4f4;
+}
+.appointment-detail-status {
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: #fff;
+}
+.appointment-detail-message {
+
+}
+.appointment-detail-message-item {
+  display: flex;
+  align-items: center;
+  height: 100rpx;
+  border-bottom: 2rpx solid #f2f2f2;
+  padding: 0 36rpx;
+  background: #fff;
+}
+.appointment-detail-message-item-title {
+  font-size: 30rpx;
+  color: #666;
+}
+.appointment-detail-message-item-content {
+  margin-left: auto;
+  font-size: 28rpx;
+  color: #333;
+  max-width: 360rpx;
+}
+.appointment-detail-time {
+  font-size: 24rpx;
+  color: #999;
+  text-align: center;
+  margin-top: 20rpx;
+}
+.appointment-detail-btn {
+  width: 90%;
+  margin-left: 5%;
+  height: 84rpx;
+  line-height: 84rpx;
+  color: #fff;
+  font-size: 32rpx;
+  border-radius: 42rpx;
+  text-align: center;
+  background: #0064A0;
+  margin-top: 60rpx;
+}
+
+.appointment-detail-modal-box {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+}
+.appointment-detail-modal-bg {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+}
+.appointment-detail-modal {
+  position: relative;
+  z-index: 2;
+  background: #fff;
+  border-radius: 20rpx;
+  margin-top: 40%;
+  width: 590rpx;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+.appointment-detail-modal-content {
+  height: 216rpx;
+  text-align: center;
+  line-height: 216rpx;
+  font-size: 30rpx;
+  color: #333;
+}
+.appointment-detail-modal-view {
+  height: 88rpx;
+  display: flex;
+}
+.appointment-detail-modal-btn {
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 30rpx;
+  color: #333;
+  background: #f7f7f7;
+  text-align: center;
+  width: 50%;
+}
+
+.appointment-detail-comment {
+  background: #fff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 3;
+}
+.appointment-detail-comment-box {
+  position: relative;
+  z-index: 4;
+  width: 90%;
+  margin-left: 5%;
+  background: #f2f2f2;
+  padding: 35rpx 0;
+  margin-top: 35rpx;
+}
+.appointment-detail-comment-box textarea {
+  font-size: 26rpx;
+  color: #333;
+  margin: 0 35rpx;
+
+}
+.appointment-detail-comment-btn {
+  width: 90%;
+  margin-left: 5%;
+  height: 84rpx;
+  line-height: 84rpx;
+  text-align: center;
+  font-size: 32rpx;
+  color: #fff;
+  border-radius: 42rpx;
+  background: #0064A0;
+  margin-top: 350rpx;
+}

@@ -1,0 +1,110 @@
+/* pages/appoint_online/appoint_online.wxss */
+.appointol {
+  min-height: 100vh;
+  background: #F4F4F4;
+}
+.appointol-item {
+  display: flex;
+  align-items: center;
+  height: 116rpx;
+  background: #fff;
+  border-bottom: 2rpx solid #f4f4f4;
+}
+.appointol-item-icon {
+  margin-left: 36rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+.appointol-item-icon image {
+  width: 40rpx;
+  height: 40rpx;
+}
+.appointol-item-title {
+  font-size: 30rpx;
+  color: #0064A0;
+  margin-left: 19rpx;
+}
+.appointol-item-content {
+  font-size: 28rpx;
+  color: #333;margin-left: auto;
+  margin-right: 36rpx;
+}
+.appointol-item-content-input {
+  margin-left: auto;
+  min-width: 250rpx;
+  color: #333;
+  font-size: 28rpx;
+  text-align: right;
+}
+.appointol-item-textarea {
+  padding: 25rpx 40rpx;
+  background: #fff;
+}
+.appointol-item-textarea textarea{
+  font-size: 28rpx;
+  color: #333;
+  height: 180rpx;
+}
+.appointol-btn {
+  width: 678rpx;
+  height: 84rpx;
+  color: #fff;
+  font-size: 32rpx;
+  line-height: 84rpx;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  background: #0064A0;
+  border-radius: 42rpx;
+  margin-top: 40rpx;
+}
+
+.appointol-modal {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+}
+.appoint-modal-bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.5);
+}
+.appoint-modal-content {
+  width: 590rpx;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 2;
+  background: #fff;
+  border-radius: 20rpx;
+  margin-top: 30%;
+}
+.appoint-modal-content-title {
+  font-size: 36rpx;
+  color: #333;
+  text-align: center;
+  padding-top: 40rpx;
+  padding-bottom: 29rpx;
+}
+.appoint-modal-content-text {
+  padding: 0 40rpx;
+  font-size: 30rpx;
+  margin-bottom: 59rpx;
+}
+.appoint-modal-content-text text {
+  
+}
+.appoint-modal-content-btn {
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  color: #fff;
+  background: #0064A0;
+  text-align: center;
+  font-size: 30rpx;
+  border-bottom-left-radius: 20rpx;
+  border-bottom-right-radius: 20rpx;
+}

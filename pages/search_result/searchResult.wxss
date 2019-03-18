@@ -1,0 +1,40 @@
+/* pages/search_result/searchResult.wxss */
+.search-result {
+  min-height: 100vh;
+  background: #f4f4f4;
+}
+
+.search-result-search{
+  padding: 22rpx 114rpx;
+  background: #0064A0;
+}
+.search-result-search-box {
+  height: 56rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  display: flex;
+  align-items: center;
+}
+.search-result-search-box-icon {
+  width: 26rpx;
+  height: 26rpx;
+  margin-left: 12rpx;
+  margin-right: 14rpx;
+}
+.search-result-search-box input {
+  font-size: 26rpx;
+  color: #333; 
+}
+.search-result-search-box-delete {
+  width: 26rpx;
+  height: 26rpx;
+  margin-left: auto;
+  margin-right: 20rpx;
+}
+.search-result-bottom {
+  height: 60rpx;
+  color: #999;
+  font-size: 22rpx;
+  line-height: 60rpx;
+  text-align: center;
+}

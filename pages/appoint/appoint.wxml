@@ -1,0 +1,39 @@
+<!--pages/appoint/appoint.wxml-->
+<view class='appoint-page'>
+  <view class='appoint-date'>
+    <view bindtap='chooseBeforeDay' class='appoint-date-before'>
+      <image class='appoint-date-before-img' src='../../images/before.png'></image>
+      <text>上一日</text>
+    </view>
+    <view class='appoint-date-current'>
+      {{month}}月{{date}}日，{{day == 1 ? "周一" : day == 2 ? "周二" : day == 3 ? "周三" : day == 4 ? "周四" : day == 5 ? "周五" : day == 6 ? "周六" : day == 0 ? "周日" : ""}}
+    </view>
+    <view bindtap='chooseNextDay' class='appoint-date-next'>
+      <text>下一日</text>
+      <image class='appoint-date-next-img' src='../../images/next.png'></image>
+    </view>
+  </view>
+  <view wx:if="{{doctorList.length > 0}}" class='doctor-list'>
+    <view wx:for="{{doctorList}}" bindtap='toDetail' data-status="{{item.status}}" data-id="{{item.uid}}" class='dotor-item'>
+      <view class='doctor-item-avatar'>
+        <image src='{{config.host + item.photo}}'></image>
+      </view>
+      <view class='doctor-item-message'>
+        <view class='doctor-item-message-main'> 
+          <view class='doctor-item-message-main-name'>{{item.d_name}}</view>
+          <view class='doctor-item-message-main-ex'>{{item.title}}</view>
+          <view class='doctor-item-message-main-status' wx:if="{{item.status != '30'}}" style='{{item.status == "10" ? "background: ##0D820A" : "background:#ED5656"}}'>{{item.status == "10" ? "可约" : item.status == "20" ? "约满" : item.status == "40" ? "特约" : ""}}</view>
+        </view>
+        <view class='doctor-item-message-main' style='width: 100%;display: block;overflow-x: scroll;margin-top:10rpx;'>
+          <view wx:for="{{item.crux}}" class='doctor-item-message-main-word-item' style='display: inline-block;'>{{item.crux}}</view>        
+        </view>
+        <view class='doctor-item-introduction'>
+          <text>{{item.speciality}}</text>
+        </view>
+        <view class='doctor-item-introduction'>
+          <text>首诊/复诊：{{item.first}}元/{{item.again}}元</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,167 @@
+/**app.wxss**/
+.container {
+  /* height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box; */
+} 
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* 问答 */
+.request-list {
+  /* border-bottom: 12rpx solid #f4f4f4; */
+  background: #fff;
+}
+.request-list-title {
+  display: flex;
+  align-items: center;
+  padding-top:  40rpx;
+  padding-bottom: 0rpx;
+}
+.request-list-title-before {
+  width: 14rpx;
+  height: 32rpx;
+  background: #4595c5; 
+  border-radius: 5rpx;
+  margin-left: 36rpx;
+  margin-right: 19rpx; 
+}
+.request-list-title-text {
+  font-size: 24rpx;
+  color: #333;
+}
+.request-list-title-after {
+  font-size: 24rpx;
+  color: #666;
+  margin-left: auto;
+  margin-right: 35rpx;
+}
+.request-item {
+  padding: 35rpx;
+  border-bottom: 2rpx solid #f4f4f4;
+}
+.request-item-question {
+  font-size: 30rpx;
+  color: #333;
+  font-weight: bold;
+  /* 两行显示 */
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.request-item-answer {
+  margin-top: 24rpx;
+  font-size: 26rpx;
+  color: #666;
+  /* 两行显示 */
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.request-item-message {
+  display: flex;
+  align-items: center;
+  margin-top: 25rpx;
+}
+.request-item-message-word {
+  font-size: 24rpx;
+  color: #666;
+  background: #f4f4f4;
+  border-radius: 10rpx;
+  padding: 12rpx 17rpx;
+}
+.request-item-message-doctor {
+  font-size: 24rpx;
+  color: #333;
+  margin-left: auto;
+  margin-right: 20rpx;
+}
+.request-item-message-doctor-in {
+  font-size: 24rpx;
+  color: #333;
+  max-width: 450rpx;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.texture-list {
+  border-bottom: 12rpx solid #f4f4f4;
+  background: #fff;
+}
+.texture-item {
+  padding: 35rpx;
+  border-bottom: 2rpx solid #f4f4f4;
+}
+.texture-item-content {
+  display: flex;
+}
+.texture-item-content-left {
+  width: 72%;
+}
+.texture-item-content-title {
+  font-size: 30rpx;
+  color: #333;
+  font-weight: bold;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.texture-item-content-text {
+  font-size: 26rpx;
+  color: #666;
+  margin-top: 24rpx;
+  /* 两行显示 */
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  max-height: 80rpx;
+}
+.texture-item-content-text image {
+  display: none
+}
+.texture-item-content-img {
+  width: 24%;
+  margin-left: auto;
+}
+.texture-item-content-img image {
+  width: 100%;
+  height: 126rpx;
+}
+.texture-item-message {
+  display: flex;
+  align-items: center;
+  margin-top: 25rpx;
+}
+.texture-item-message-word {
+  font-size: 24rpx;
+  color: #666;
+  background: #f4f4f4;
+  border-radius: 10rpx;
+  padding: 12rpx 17rpx;
+}
+.texture-item-message-doctor {
+  font-size: 24rpx;
+  color: #333;
+  margin-left: auto;
+  margin-right: 20rpx;
+}
+.texture-item-message-doctor-in {
+  font-size: 24rpx;
+  color: #333;
+}

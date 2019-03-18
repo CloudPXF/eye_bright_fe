@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>睛亮眼科</title>
+    <!--指定IE和Chrome使用最新版本渲染当前页面-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!--定义移动端的窗口：宽度是设备屏幕的高度、初始缩放比例为1、不允许用户手动缩放-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/jquery-weui.css">
+    <link rel="stylesheet" href="css/weui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.css">
+    <script>if(typeof window.wView !== "undefined"){ window.wView.allowsInlineMediaPlayback = "YES"; window.wView.mediaPlaybackRequiresUserAction = "NO";}</script>
+</head>
+<body>
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/common.js"></script>
+<script src="js/jweixin-1.2.0.js"></script>
+<script src="js/jquery-weui.js"></script>
+<div>
+    <div class="logo">
+        <img src="images/logo.jpg">
+    </div>
+    <div class="btn-view">
+        <div onclick="toGetMessage()" class="btn">
+            体检通知授权
+        </div>
+        <div class="btn btn-other" style="display: none">
+            授权成功
+        </div>
+    </div>
+</div>
+    <script>
+        window.onload = function () {
+            var url = 'brain.lololun.top/eye_bright/h5/identify.html';
+            if(getUrlParam("code")){
+
+                code = getUrlParam("code");
+                $.ajax({
+                    type: "post",
+                    url: host + "customer/wxuser/accessToken",
+                    data: {
+                        code: code
+                    },
+                    cache: false,
+                    async: false,
+                    success: function (res) {
+                        if(!res.errorCode) {
+                            $.ajax({
+                                type: 'post',
+                                url: host + "customer/wxuser/user/getWXInfo",
+                                data: {
+                                    access_token: res.message.access_token,
+                                    openid: res.message.openid
+                                },
+                                cache: false,
+                                async: false,
+                                dataType: "JSON",
+                                success: function (ress) {
+                                    if (!ress.errorCode) {
+                                        console.log(ress);
+                                        $(".btn").hide();
+                                        $(".btn-other").show();
+                                        $.alert("授权成功");
+                                    } else {
+                                        console.log(ress);
+                                        $.alert("授权失败");
+                                    }
+                                },
+                                error: function (ress) {
+                                    alert("请求失败");
+                                }
+                            });
+                        }
+                    }
+                })
+
+            }else{
+                //从微信上获取信息后跳转回来
+                // window.location.replace('https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxfd7b09171bb92f4d&redirect_uri='+ url + '&response_type=code&scope=snsapi_userinfo')
+            }
+        };
+        function toGetMessage() {
+            var url = 'https://brain.lololun.top/eye_bright/h5/identify.html';
+            window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxfd7b09171bb92f4d&redirect_uri=https://brain.lololun.top/eye_bright/h5/identify.html&response_type=code&scope=snsapi_userinfo'
+        }
+    </script>
+</body>
+</html>

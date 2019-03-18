@@ -1,0 +1,66 @@
+<!--pages/apointment_detail/apointment_detail.wxml-->
+<view class='appointment-detail'>
+  <view class='appointment-detail-status' style='background: {{message.status == "10"  ? "#0D820A" : message.status == "30" ? "#0064A0" : "#ccc"}}'>{{message.status == "10" ? "受理中" : message.status == "20" ? "已取消" : message.status == "30" ? "已预约" : message.status == "40" ? "已就诊" : "已过期"}}</view>
+  <view class='appointment-detail-message'>
+    <view class='appointment-detail-message-item'>
+      <view class='appointment-detail-message-item-title'>诊所：</view>
+      <view class='appointment-detail-message-item-content'>{{message.store.name}}</view>
+    </view>
+    <view class='appointment-detail-message-item'>
+      <view class='appointment-detail-message-item-title'>时间：</view>
+      <view class='appointment-detail-message-item-content'>{{message.about_date}} {{message.about_time}}</view>
+    </view>
+    <view class='appointment-detail-message-item'>
+      <view class='appointment-detail-message-item-title'>医生：</view>
+      <view class='appointment-detail-message-item-content'>{{message.doctor_info.d_name}}</view>
+    </view>
+    <view class='appointment-detail-message-item' style="margin-top: 12rpx;">
+      <view class='appointment-detail-message-item-title'>就诊人：</view>
+      <view class='appointment-detail-message-item-content'>{{message.name}}</view>
+    </view>
+    <view class='appointment-detail-message-item'>
+      <view class='appointment-detail-message-item-title'>联系电话：</view>
+      <view class='appointment-detail-message-item-content'>{{message.tel}}</view>
+    </view>
+    <view class='appointment-detail-message-item' style='margin-top: 12rpx;padding: 29rpx 36rpx;'>
+      <view class='appointment-detail-message-item-title'>地址：</view>
+      <view class='appointment-detail-message-item-content'>{{message.store.address}}</view>
+    </view>
+    <view class='appointment-detail-message-item'>
+      <view class='appointment-detail-message-item-title'>诊所电话：</view>
+      <view class='appointment-detail-message-item-content'>{{message.store.tel}}</view>
+    </view>
+    <view class='appointment-detail-message-item' style="margin-top: 12rpx;padding: 29rpx 36rpx;">
+      <view class='appointment-detail-message-item-title'>病情描述：</view>
+      <view class='appointment-detail-message-item-content'>{{message.describe}}</view>
+    </view>
+    <view class='appointment-detail-time'>
+      预约提交时间：{{message.create_time}}
+    </view>
+  </view>
+  <view wx:if="{{message.status == '10'}}" bindtap='showCancelModal' class='appointment-detail-btn'>
+    取消预约
+  </view>
+  <view wx:if="{{message.status == '40'}}" bindtap='showCommentPage' class='appointment-detail-btn'>
+    评论医生
+  </view>
+
+  <view wx:if="{{ifShowModal}}" class='appointment-detail-modal-box'>
+    <view class='appointment-detail-modal-bg'></view>
+    <view class='appointment-detail-modal'>
+      <view class='appointment-detail-modal-content'>是否确定取消该预约</view>
+      <view class='appointment-detail-modal-view'>
+        <view bindtap='hideCancelModal' class='appointment-detail-modal-btn' style='border-bottom-left-radius: 20rpx;'>取消</view>
+        <view bindtap='cancelAppointment' class='appointment-detail-modal-btn' style='background: #0064A0;border-bottom-right-radius: 20rpx;color: #fff;'>确定</view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{ifShowComment}}" class='appointment-detail-comment'>
+    <view class='appointment-detail-comment-box'>
+      <textarea bindinput='inputText' value='{{textInput}}' placeholder='哈喽~医生是否专业，是否解决了你的问题呢？'></textarea>
+    </view>
+    <view bindtap='comment' class='appointment-detail-comment-btn'>评论</view>
+  </view>
+  
+</view>

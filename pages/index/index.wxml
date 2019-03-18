@@ -1,0 +1,242 @@
+<!--index.wxml-->
+<import src="../../wxParse/wxParse.wxml"/>
+<view class='index-page'>
+  <!-- 首页 -->
+  <view wx:if="{{tab == 0}}" class='index-main'>
+    <view class='index-scroll'>
+      <swiper autoplay="{{true}}" indicator-dots="true" indicator-color="rgba(255,255,255,0.6)" indicator-active-color="rgba(0,103,164,1)" circular="true">
+        <swiper-item wx:for="{{swiperList}}"><image src='{{config.host + item}}'></image></swiper-item>
+      </swiper> 
+    </view>
+    <view class='index-search'>
+      <view class='index-search-box'>
+        <image src='../../images/icon_search.png'></image>
+        <input bindblur='intoSearch' placeholder='搜疾病/症状/问答/文章'></input>
+      </view>
+      <view class='index-search-line'></view>
+      <view class='index-search-word'>
+        <view class='index-search-word-title'>
+          关键词：
+        </view>
+        <scroll-view scroll-x="true" class='index-search-word-list'>
+          <view wx:for="{{indexSearchWords}}" class='index-search-word-item'>{{item.crux}}</view>
+        </scroll-view>
+      </view>
+    </view>
+    <view class='index-nav'>
+      <view bindtap='toReport' class='index-nav-item'>
+        <view class='index-nav-item-img'><image src='../../images/icon_report.png'></image></view>
+        <view class='index-nav-item-text'>报告查询</view>
+      </view>
+      <view bindtap='toQuestion' class='index-nav-item'>
+        <view class='index-nav-item-img'><image src='../../images/icon_request.png'></image></view>
+        <view class='index-nav-item-text'>问答</view>
+      </view>
+      <view bindtap='toSciene' class='index-nav-item'>
+        <view class='index-nav-item-img'><image src='../../images/icon_sciene.png'></image></view>
+        <view class='index-nav-item-text'>科普</view>
+      </view>
+      <view bindtap='toAppoint' class='index-nav-item'>
+        <view class='index-nav-item-img'><image src='../../images/icon_appoint.png'></image></view>
+        <view class='index-nav-item-text'>预约</view>
+      </view>
+    </view>
+    <!-- 热门问答 -->
+    <view class='request-list'>
+      <view class='request-list-title'>
+        <view class='request-list-title-before'></view>
+        <view class='request-list-title-text'>热门问答</view>
+        <view bindtap='toQuestion' class='request-list-title-after'>更多</view>
+      </view>
+      <view wx:for="{{requestList}}" bindtap='toQuestionDetail' data-id="{{item.id}}" class='request-item'>
+        <view class='request-item-question'>
+          Q：{{item.problem}}
+        </view>
+        <view class='request-item-answer'>
+          A：{{item.answer}}
+        </view>
+        <view class='request-item-message'>
+          <view wx:if="{{item.crux}}" class='request-item-message-word'>{{item.crux.crux}}</view>
+          <view class='request-item-message-doctor'>{{item.doctor_info.d_name}}</view>
+          <view class='request-item-message-doctor-in'>{{item.doctor_info.title}}</view>
+        </view>
+      </view>
+    </view>
+    <!-- 热门文章 -->
+    <view wx:if="{{textureList.length}}" class='texture-list'>
+      <view class='request-list-title'>
+        <view class='request-list-title-before'></view>
+        <view class='request-list-title-text'>热门文章</view>
+        <view bindtap='toSciene' class='request-list-title-after'>更多</view>
+      </view>
+      <view wx:for="{{textureList}}" bindtap='toTextureDetail' data-id="{{item.id}}" class='texture-item'>
+        <view class='texture-item-content'>
+          <view class='texture-item-content-left'>
+            <view class='texture-item-content-title'>
+              {{item.title}}
+            </view>
+            <view class='texture-item-content-text'>
+              <!-- <template is="wxParse" data="{{wxParseData:textureContentList[index].nodes}}" /> -->
+              {{item.abstract}}
+            </view>
+          </view>
+          <view class='texture-item-content-img'>
+            <image src='{{config.host + item.photo}}'></image>
+          </view>
+        </view>
+        <view class='texture-item-message'>
+          <view wx:if="{{item.crux}}" class='texture-item-message-word'>{{item.crux.crux}}</view>
+          <view class='texture-item-message-doctor'>{{item.doctor_info.d_name}}</view>
+          <view class='texture-item-message-doctor-in'>{{item.doctor_info.title}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 问答 -->
+  <view wx:elif="{{tab == 1}}" class='request-main'>
+    <!-- 搜索框 -->
+    <view class='request-search'>
+      <view class='request-search-box'>
+        <image src='../../images/icon_search.png'></image>
+        <input bindblur='searchQuestion' placeholder='搜疾病/症状/问答'></input>
+      </view>
+      <!-- 提问 -->
+      <view bindtap='toPublish' class='request-search-ask'>
+        提问
+      </view>
+    </view>
+    <!-- 关键词 -->
+    <view class='request-search-word'> 
+      <view wx:if="{{(!isQuestionCruxShowMore && index < 6) || isQuestionCruxShowMore}}" wx:for="{{questionWordList}}" bindtap='chooseKeyWord' data-id="{{index}}" class='request-search-word-item {{item.isChosen ? "request-search-word-item-on" : ""}}'>{{item.crux}}</view>
+      <view bindtap='showQuestionCruxMore' wx:if="{{questionWordList.length > 6}}" class='request-show-more'>{{isQuestionCruxShowMore ? "收起" : "展开更多"}}</view>
+    </view>
+    
+    <!-- 热门问答 -->
+    <view class='request-list'>
+      <view class='request-list-title'>
+        <view class='request-list-title-before'></view>
+        <view class='request-list-title-text'>所有问答</view>
+        <!-- <view class='request-list-title-after'>更多</view> -->
+      </view>
+      <view wx:for="{{questionList}}" bindtap='toQuestionDetail' data-id="{{item.id}}" class='request-item'>
+        <view class='request-item-question'>
+          Q：{{item.problem}}
+        </view>
+        <view class='request-item-answer'>
+          A：{{item.answer}}
+        </view>
+        <view class='request-item-message'>
+          <view wx:if="{{item.crux}}" class='request-item-message-word'>{{item.crux.crux}}</view>
+          <view class='request-item-message-doctor'>{{item.doctor_info.d_name}}</view>
+          <view class='request-item-message-doctor-in'>{{item.doctor_info.title}}</view>
+        </view>
+      </view>
+    </view>
+    <!-- <view class='request-bottom'>
+      到底了~
+    </view> -->
+  </view>
+  <!-- 预约 -->
+  <view wx:elif="{{tab == 2}}" class='shop-main'>
+    <view class='appoint-search'>
+      <view class='appoint-search-box'>
+        <image src='../../images/icon_search.png'></image>
+        <input bindblur='intoSearchDoctor' placeholder='搜索医生'></input>
+      </view>
+    </view>
+    <view class='appoint-calendar'>
+      <view class='appoint-calendar-title'>{{selectDay.year}}年{{selectDay.month}}月</view>
+      <view class='appoint-calendar-week'>
+        <view class='appoint-calendar-date'>日</view>
+        <view class='appoint-calendar-date'>一</view>
+        <view class='appoint-calendar-date'>二</view>
+        <view class='appoint-calendar-date'>三</view>
+        <view class='appoint-calendar-date'>四</view>
+        <view class='appoint-calendar-date'>五</view>
+        <view class='appoint-calendar-date'>六</view>        
+      </view>
+      <view class='appoint-calendar-date-list'>
+        <view wx:for="{{dateArray}}" bindtap='selectDate' data-index="{{index}}" class='appoint-calendar-date {{index == currentSelectDate ? "appoint-calendar-date-on" : ""}}' style='{{(index >= today.day && index - today.day < 15) && (index != currentSelectDate) ? "color: #333" : ""}}'>{{index == today.day ? "今天" : item}}</view>
+      </view>
+    </view>
+    <view class='appoint-shop'>
+      <view class='appoint-shop-title'>
+        <view class='appoint-shop-title-before'></view>
+        <view class='appoint-shop-title-text'>请选择门店</view>
+        <view class='appoint-shop-title-time'>({{selectDay.year + "年" + selectDay.month + "月" + selectDay.date + "日"}})</view>
+      </view>
+      <view class='appoint-shop-list'>
+        <view wx:for="{{shopList}}" bindtap='toAppointList' data-id="{{item.id}}" class='appoint-shop-item'>
+          <view class='appoint-shop-item-name'>{{item.name}}</view>
+          <view class='appoint-shop-item-location'>{{item.address}}</view>
+          <view class='appoint-shop-item-time'>营业时间为{{item.morning_start}}-{{item.after_end}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 我的 -->
+  <view wx:elif="{{tab == 3}}" class='my-main'>
+    <view class='my-message' bindtap='toMyMessage'>
+      <view class='my-message-avatar'><image src='{{userInfo.avatarUrl}}'></image></view>
+      <view class='my-message-name'>{{userInfo.nickName}}</view>
+      <view class='my-message-to'><image src='../../images/to_white.png'></image></view>
+    </view>
+    <view class='my-func-list'>
+      <view bindtap='toMyReport' class='my-func-item'>
+        <view class='my-func-item-img'><image src='../../images/icon_report.png'></image></view>
+        <view class='my-func-item-text'>检查报告</view>
+        <view class='my-func-item-to'><image src='../../images/to_gray.png'></image></view>
+      </view>
+      <view bindtap='toMyQuestion' class='my-func-item'>
+        <view class='my-func-item-img'><image src='../../images/icon_request.png'></image></view>
+        <view class='my-func-item-text'>我的问答</view>
+        <view class='my-func-item-to'><image src='../../images/to_gray.png'></image></view>
+      </view>
+      <view bindtap='toMyAppointment' class='my-func-item' style='margin-top: 24rpx;'>
+        <view class='my-func-item-img'><image src='../../images/icon_appoint.png'></image></view>
+        <view class='my-func-item-text'>我的预约</view>
+        <view class='my-func-item-to'><image src='../../images/to_gray.png'></image></view>
+      </view>
+    </view>
+    <view class='my-feedback'>
+      <view bindtap='toFeedback' class='my-feedback-btn'>
+        <image src='../../images/edit.png'></image>
+        <text style='margin-right:auto;'>意见反馈</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class='tabbar'>
+  <view bindtap='changeTab' data-id="0" class='tabbar-item'>
+    <view class='tabbar-item-img'><image src='../../images/{{tab == 0 ? "index_on" : "index"}}.png'></image></view>
+    <view class='tabbar-item-text {{tab == 0 ? "tabbar-item-text-on" : ""}}'>首页</view>
+  </view>
+  <view bindtap='changeTab' data-id="1" class='tabbar-item'>
+    <view class='tabbar-item-img'><image src='../../images/{{tab == 1 ? "request_on" : "request"}}.png'></image></view>
+    <view class='tabbar-item-text {{tab == 1 ? "tabbar-item-text-on" : ""}}'>问答</view>
+  </view>
+  <view bindtap='changeTab' data-id="2" class='tabbar-item'>
+    <view class='tabbar-item-img'><image src='../../images/{{tab == 2 ? "appoint_on" : "appoint"}}.png'></image></view>
+    <view class='tabbar-item-text {{tab == 2 ? "tabbar-item-text-on" : ""}}'>预约</view>
+  </view>
+  <view bindtap='changeTab' data-id="3" class='tabbar-item'>
+    <view class='tabbar-item-img'><image src='../../images/{{tab == 3 ? "my_on" : "my"}}.png'></image></view>
+    <view class='tabbar-item-text {{tab == 3 ? "tabbar-item-text-on" : ""}}'>我的</view>
+  </view>
+</view>
+
+<view wx:if="{{!hasUserInfo}}" class="container"> 
+  <view style='color:#333;padding-top:250rpx;text-align:center;font-size:46rpx;'>
+    欢迎使用睛亮眼科小程序
+  </view>
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权</button>
+    <block wx:else>
+      <view style='text-align:center;'>
+        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      </view>
+      <view class="userinfo-nickname">{{userInfo.nickName}}</view>
+    </block>
+  </view>
+</view>

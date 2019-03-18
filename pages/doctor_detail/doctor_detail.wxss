@@ -1,0 +1,323 @@
+/* pages/doctor_detail/doctor_detail.wxss */
+.doctor-detail {
+  padding-bottom: 130rpx;
+  background: #f4f4f4;
+}
+.doctor-detail-base {
+  position: relative;
+  width: 100%;
+  height: 402rpx;
+}
+.doctor-detail-base-avatar {
+  display: flex;
+  position: relative;
+  z-index: 1;
+  padding-top: 40rpx;
+}
+.doctor-detail-base-avatar image {
+  width: 200rpx;
+  height: 200rpx;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+}
+.doctor-detail-base-name {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: #fff;
+  font-size: 36rpx;
+  margin-top: 20rpx;
+  margin-bottom: 14rpx;
+}
+.doctor-detail-base-post {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  font-size: 24rpx;
+  color: #fff;
+}
+.doctor-detail-base-bg {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.doctor-detail-like {
+  padding: 36rpx 0;
+  border-bottom: 12rpx solid #f4f4f4;
+  background: #fff;
+}
+.doctor-detail-title {
+  font-size: 30rpx;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+.doctor-detail-title image{
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 36rpx;
+  margin-right: 19rpx;
+}
+.doctor-detail-like-list {
+  padding: 0 36rpx;
+  margin-top: 30rpx;
+}
+.doctor-detail-like-item {
+  padding: 0 21rpx;
+  font-size: 26rpx;
+  color: #999;
+  height: 54rpx;
+  line-height: 54rpx;
+  border-radius: 27rpx;
+  background: #f4f4f4;
+  display: inline-block;
+  margin-right: 16rpx;
+  margin-bottom: 16rpx;
+}
+
+.doctor-detail-date {
+  padding-bottom: 36rpx;
+  background: #fff;
+}
+.doctor-detail-date-nav {
+  display: flex;
+  height: 80rpx;
+}
+.doctor-detail-date-nav-item {
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 4rpx solid #fff;
+  color: #666;
+  font-size: 30rpx;
+  padding: 0 20rpx;
+}
+.doctor-detail-date-nav-item:first-child {
+  margin-left: auto;
+}
+.doctor-detail-date-nav-item:last-child {
+  margin-right: auto;
+}
+.doctor-detail-date-nav-item-on {
+  border-bottom: 4rpx solid #0064A0;
+  color: #0064A0;
+}
+.doctor-detail-date-list {
+  margin-top: 10rpx;
+}
+.doctor-detail-date-display {
+  color: #999;
+  display: flex;
+  margin-top: 20rpx;
+}
+.doctor-detail-date-list-title {
+  background: #f6f6f6;
+}
+.doctor-detail-date-item {
+  width: 66rpx;
+  height: 66rpx;
+  line-height: 66rpx;
+  font-size: 30rpx;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.doctor-detail-date-item-on {
+  border-radius: 50%;
+  background: #0064A0;
+  color: #fff;
+}
+.doctor-detail-date-status {
+  display: flex;
+  margin-top: 14rpx;
+}
+.doctor-detail-date-status-item {
+  width: 60rpx;
+  height: 30rpx;
+  font-size: 18rpx;
+  overflow: hidden;
+  text-align: center;
+  line-height: 30rpx;
+  background: #fff;
+  margin-left: auto;
+  margin-right: auto;
+  color: #fff;
+  border-radius: 5rpx;
+}
+
+.doctor-detail-introduction {
+  border-top: 12rpx solid #f4f4f4;
+  border-bottom: 12rpx solid #f4f4f4;
+  padding: 36rpx 0;
+  background: #fff;
+}
+.doctor-detail-introduction-content {
+  font-size: 28rpx;
+  color: #333;
+  margin: 25rpx 36rpx 0rpx 36rpx;
+}
+
+.doctor-detail-comment {
+  padding: 36rpx 0;
+  background: #fff;
+}
+.doctor-detail-comment-list {
+  margin: 36rpx 0;
+  border-top: 2rpx solid #f4f4f4;
+  padding: 0 36rpx;
+}
+.doctor-detail-comment-item {
+  padding: 36rpx 0;
+  border-bottom: 2rpx solid #f4f4f4;
+}
+.doctor-detail-comment-item-message {
+  display: flex;
+}
+.doctor-detailcomment-item-message-avatar {
+  width: 60rpx;
+  height: 60rpx;
+}
+.doctor-detailcomment-item-message-avatar image {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+}
+.doctor-detail-comment-item-message-base {
+  margin-left: 20rpx;
+}
+.doctor-detail-comment-item-message-name {
+  font-size: 24rpx;
+  color: #333;
+}
+.doctor-detail-comment-item-message-date {
+  font-size: 22rpx;
+  color: #999;
+  margin-top: 8rpx;
+}
+.doctor-detail-comment-item-content {
+  font-size: 28rpx;
+  color: #333;
+  margin-top: 30rpx;
+}
+.doctor-detail-comment-pagenation {
+  margin-top: 40rpx;
+  display: flex;
+  align-items: center;
+}
+.doctor-detail-comment-pagenation-item {
+  height: 36rpx;
+  line-height: 36rpx;
+  padding: 0 12rpx;
+  border: 2rpx solid #B9B9B9;
+  color: #B9B9B9;
+  font-size: 22rpx;
+  margin-left: 8rpx;
+  margin-right: 8rpx;
+}
+.doctor-detail-comment-pagenation-item-on {
+  background: #0064A0;
+}
+.doctor-detail-comment-pagenation-item:first-child {
+  margin-left: auto;
+}
+.doctor-detail-comment-pagenation-next {
+  color: #B9B9B9;
+  font-size: 22rpx;
+  margin-left: 8rpx;
+  margin-right: auto;
+}
+.doctor-detail-comment-pagenation-deco {
+  color: #B9B9B9;
+  font-size: 22rpx;
+  margin-left: 8rpx;
+  margin-right: 8rpx;
+}
+
+
+.doctor-detail-btn-view {
+  position: fixed;
+  bottom: 0;
+  z-index: 9;
+  width: 100%;
+  height: 100rpx;
+  background: #0064A0;
+  display: flex;
+  box-shadow: 0 0 12rpx 0 #eee;
+}
+.doctor-detail-btn {
+  width: 50%;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #333;
+  background: #fff;
+}
+
+.doctor-detail-time {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+}
+.doctor-detail-time-bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  background: rgba(0,0,0,0.5);
+}
+.doctor-detail-timer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding-bottom: 30rpx;
+  z-index: 101;
+  background: #fff;
+}
+.doctor-detail-timer-title {
+  text-align: center;
+  font-size: 30rpx;
+  color: #333;
+  padding: 40rpx 0;
+}
+.doctor-detail-timer-message {
+  display: flex;
+  padding: 0 36rpx;
+}
+.doctor-detail-timer-message-avatar {
+
+}
+.doctor-detail-timer-message-avatar image {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+.doctor-detail-timer-base {
+  margin-left: 27rpx;
+}
+.doctor-detail-timer-base-title {
+  font-size: 28rpx;
+  color: #333;
+  display: flex;
+}
+.doctor-detail-timer-base-list {
+  margin-top: 20rpx;
+}
+.doctor-detail-timer-base-item {
+  font-size: 24rpx;
+  color: #0064A0;
+  line-height: 48rpx;
+  height: 48rpx;
+  width: 118rpx;
+  text-align: center;
+  border: 2rpx solid #0064A0;
+  border-radius: 10rpx;
+  margin-right: 16rpx;
+  margin-top: 26rpx;
+  display: inline-block;
+}

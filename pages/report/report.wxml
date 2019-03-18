@@ -1,0 +1,259 @@
+<!--pages/report/report.wxml-->
+<view class='report-page'>
+  <!-- 国际通用视疲劳自评量表 -->
+  <view class='report-table'> 
+    <view class='report-table-title'>
+      <image src='../../images/report_table.png'></image>
+      <text>国际通用视疲劳自评量表</text>
+    </view>
+    <view class='report-table-content'>
+      <view class='report-table-content-col report-table-content-col-title' style='width: 32%;'>
+        <view class='report-table-content-col-item'>自评量表得分</view>
+        <view class='report-table-content-col-item'>儿童</view>
+        <view class='report-table-content-col-item report-table-content-col-item-last'>成年</view>
+      </view>
+      <view class='report-table-content-col report-table-content-col-last' style='width: 68%;'>
+        <view class='report-table-content-col-item'>{{reportDetail.score ? reportDetail.score : "-"}}</view>
+        <view class='report-table-content-col-item' style='color: #666;'>总分在16分或以上是集合不足的征兆</view>
+        <view class='report-table-content-col-item report-table-content-col-item-last' style='color: #666;'>总分在21分或以上是集合不足的征兆</view>
+      </view>
+    </view>
+  </view>
+  <!-- 视力 -->
+  <view class='report-table'>
+    <view class='report-table-title'>
+      <image src='../../images/report_table.png'></image>
+      <text>视力</text>
+    </view>
+    <view class='report-table-content'>
+      <view class='report-table-content-col report-table-content-col-title' style='width: 33.33%;'>
+        <view class='report-table-content-col-item'></view>
+        <view class='report-table-content-col-item'>裸眼视力</view>
+        <view class='report-table-content-col-item report-table-content-col-item-last'>戴镜视力</view>
+      </view>
+      <view class='report-table-content-col' style='width: 33.33%;'>
+        <view class='report-table-content-col-item' style='color:#333;font-weight:bold;font-size:28rpx;'>右眼</view>
+        <view class='report-table-content-col-item'>{{reportDetail.nak_r ? reportDetail.nak_r : "-"}}</view>
+        <view class='report-table-content-col-item report-table-content-col-item-last'>{{reportDetail.wear_r ? reportDetail.wear_r : "-"}}</view>
+      </view>
+      <view class='report-table-content-col report-table-content-col-last' style='width: 33.33%;'>
+        <view class='report-table-content-col-item' style='color:#333;font-weight:bold;font-size:28rpx;'>左眼</view>
+        <view class='report-table-content-col-item'>{{reportDetail.nak_l ? reportDetail.nak_l : "-"}}</view>
+        <view class='report-table-content-col-item report-table-content-col-item-last'>{{reportDetail.wear_l ? reportDetail.wear_l : "-"}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 电脑验光 -->
+  <view wx:if="{{reportDetail.pupil_distance || reportDetail.ball_r || reportDetail.column_r || reportDetail.axis_l || reportDetail.ball_l || reportDetail.column_l || reportDetail.axis_r}}" class='report-table'>
+    <view class='report-table-title'>
+      <image src='../../images/report_table.png'></image>
+      <text>电脑验光</text>
+      <view style='margin-left:auto;margin-right:20rpx;font-size: 26rpx;color:#333;'>
+        瞳距：<text style='color:#0064A0;margin-right: 10rpx;font-size: 26rpx;'>{{reportDetail.pupil_distance ? reportDetail.pupil_distance : "-"}}</text>mm
+      </view>
+    </view>
+    <view class='report-table-content'>
+      <view class='report-table-content-col report-table-content-col-title' style='width: 33.33%;'>
+        <view class='report-table-content-col-item'></view>
+        <view class='report-table-content-col-item'>球镜</view>
+        <view class='report-table-content-col-item'>柱镜</view>
+        <view class='report-table-content-col-item report-table-content-col-item-last'>轴位</view>
+      </view>
+      <view class='report-table-content-col' style='width: 33.33%;'>
+        <view class='report-table-content-col-item' style='color:#333;font-weight:bold;font-size:28rpx;'>右眼</view>
+        <view class='report-table-content-col-item'>{{reportDetail.ball_r ? reportDetail.ball_r + "D" : "-"}}</view>
+        <view class='report-table-content-col-item'>{{reportDetail.column_r ? reportDetail.column_r + "D" : "-"}}</view>
+        <view class='report-table-content-col-item report-table-content-col-item-last'>{{reportDetail.axis_r ? reportDetail.axis_l + "°" : "-"}}</view>
+      </view>
+      <view class='report-table-content-col report-table-content-col-last' style='width: 33.33%;'>
+        <view class='report-table-content-col-item' style='color:#333;font-weight:bold;font-size:28rpx;'>左眼</view>
+        <view class='report-table-content-col-item'>{{reportDetail.ball_l ? reportDetail.ball_l + "D" : "-"}}</view>
+        <view class='report-table-content-col-item'>{{reportDetail.column_l ? reportDetail.column_l + "D" : "-"}}</view>
+        <view class='report-table-content-col-item report-table-content-col-item-last'>{{reportDetail.axis_l ? reportDetail.axis_r + "°" : "-"}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 色觉 -->
+  <view class='report-table'>
+    <view class='report-table-title'>
+      <image src='../../images/report_table.png'></image>
+      <text>色觉</text>
+    </view>
+    <view class='report-table-content'>
+      <view class='report-table-content-col report-table-content-col-title' style='width: 32%;'>
+        <view class='report-table-content-col-item report-table-content-col-item-last'>色觉</view>
+      </view>
+      <view class='report-table-content-col report-table-content-col-last' style='width: 68%;'>
+        <view class='report-table-content-col-item report-table-content-col-item-last'>{{reportDetail.color_sence ? reportDetail.color_sence : "-"}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 眼位 -->
+  <view class='report-table'>
+    <view class='report-table-title'>
+      <image src='../../images/report_table.png'></image>
+      <text>眼位</text>
+    </view>
+    <view class='report-table-content'>
+      <view class='report-table-content-col report-table-content-col-title' style='width: 32%;'>
+        <view class='report-table-content-col-item report-table-content-col-item-last'>眼位</view>
+      </view>
+      <view class='report-table-content-col report-table-content-col-last' style='width: 68%;'>
+        <view class='report-table-content-col-item report-table-content-col-item-last'>{{reportDetail.eye_position ? reportDetail.eye_position : "-"}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 眼压 -->
+  <view class='report-table'>
+    <view class='report-table-title'>
+      <image src='../../images/report_table.png'></image>
+      <text>眼压</text>
+    </view>
+    <view class='report-table-content'>
+      <view class='report-table-content-col report-table-content-col-title' style='width: 33.33%;'>
+        <view class='report-table-content-col-item'></view>
+        <view class='report-table-content-col-item'>眼压数值</view>
+        <view class='report-table-content-col-item report-table-content-col-item-last'>正常值范围</view>
+      </view>
+      <view class='report-table-content-col' style='width: 33.33%;'>
+        <view class='report-table-content-col-item' style='color:#333;font-weight:bold;font-size:28rpx;'>右眼</view>
+        <view class='report-table-content-col-item'>{{reportDetail.pressure_r ? reportDetail.pressure_r : "-"}}mmHg</view>
+        <view class='report-table-content-col-item report-table-content-col-item-last' style='color: #666;'>10-21mmHg</view>
+      </view>
+      <view class='report-table-content-col report-table-content-col-last' style='width: 33.33%;'>
+        <view class='report-table-content-col-item' style='color:#333;font-weight:bold;font-size:28rpx;'>左眼</view>
+        <view class='report-table-content-col-item'>{{reportDetail.pressure_l ? reportDetail.pressure_l : "-"}}mmHg</view>
+        <view class='report-table-content-col-item report-table-content-col-item-last' style='color: #666;'>10-21mmHg</view>
+      </view>
+    </view>
+  </view>
+  <!-- IOL master -->
+  <view wx:if="{{reportDetail.corneal_k1_r || reportDetail.corneal_k2_r || reportDetail.corneal_light_r || reportDetail.axis_oculi_r || anterior_chamber_depth_r || reportDetail.white_to_white_value_r || reportDetail.corneal_k1_l || reportDetail.corneal_k2_l || reportDetail.corneal_light_l || reportDetail.axis_oculi_l || reportDetail.anterior_chamber_depth_l || reportDetail.white_to_white_value_l}}" class='report-table'>
+    <view class='report-table-title'>
+      <image src='../../images/report_table.png'></image>
+      <text>IOL master</text>
+    </view>
+    <view class='report-table-content'>
+      <view class='report-table-content-col report-table-content-col-title' style='width: 33.33%;'>
+        <view class='report-table-content-col-item'></view>
+        <view class='report-table-content-col-item'>角膜曲率K1</view>
+        <view class='report-table-content-col-item'>角膜曲率K2</view>
+        <view class='report-table-content-col-item'>角膜散光</view>
+        <view class='report-table-content-col-item'>眼轴</view>
+        <view class='report-table-content-col-item'>前房深度</view>
+        <view class='report-table-content-col-item report-table-content-col-item-last'>白到白值</view>
+      </view>
+      <view class='report-table-content-col' style='width: 33.33%;'>
+        <view class='report-table-content-col-item' style='color:#333;font-weight:bold;font-size:28rpx;'>右眼</view>
+        <view class='report-table-content-col-item'>{{reportDetail.corneal_k1_r ? reportDetail.corneal_k1_r + "°" : "-"}}</view>
+        <view class='report-table-content-col-item'>{{reportDetail.corneal_k2_r ? reportDetail.corneal_k2_r + "°" : "-"}}</view>
+        <view class='report-table-content-col-item'>{{reportDetail.corneal_light_r ? reportDetail.corneal_light_r + "°" : "-"}}</view>
+        <view class='report-table-content-col-item'>{{reportDetail.axis_oculi_r ? reportDetail.axis_oculi_r + "mm" : "-"}}</view>
+        <view class='report-table-content-col-item'>{{reportDetail.anterior_chamber_depth_r ? reportDetail.anterior_chamber_depth_r + "mm" : "-"}}</view>
+        <view class='report-table-content-col-item report-table-content-col-item-last'>{{reportDetail.white_to_white_value_r ? reportDetail.white_to_white_value_r + "mm" : "-"}}</view>
+      </view>
+      <view class='report-table-content-col report-table-content-col-last' style='width: 33.33%;'>
+        <view class='report-table-content-col-item' style='color:#333;font-weight:bold;font-size:28rpx;'>左眼</view>
+        <view class='report-table-content-col-item'>{{reportDetail.corneal_k1_l ? reportDetail.corneal_k1_l + "°" : "-"}}</view>
+        <view class='report-table-content-col-item'>{{reportDetail.corneal_k2_l ? reportDetail.corneal_k2_l + "°" : "-"}}</view>
+        <view class='report-table-content-col-item'>{{reportDetail.corneal_light_l ? reportDetail.corneal_light_l + "°" : "-"}}</view>
+        <view class='report-table-content-col-item'>{{reportDetail.axis_oculi_l ? reportDetail.axis_oculi_l + "mm" : "-"}}</view>
+        <view class='report-table-content-col-item'>{{reportDetail.anterior_chamber_depth_l ? reportDetail.anterior_chamber_depth_l + "mm" : "-"}}</view>
+        <view class='report-table-content-col-item report-table-content-col-item-last'>{{reportDetail.white_to_white_value_l ? reportDetail.white_to_white_value_l + "mm" : "-"}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 裂隙灯检查 -->
+  <view class='report-table'>
+    <view class='report-table-title'>
+      <image src='../../images/report_table.png'></image>
+      <text>裂隙灯检查</text>
+    </view>
+    <view class='report-table-content'>
+      <view class='report-table-content-col report-table-content-col-title' style='width: 33.33%;'>
+        <view class='report-table-content-col-item'></view>
+        <view class='report-table-content-col-item'>眼睑及眼附属器</view>
+        <view class='report-table-content-col-item'>结膜</view>
+        <view class='report-table-content-col-item'>角膜</view>
+        <view class='report-table-content-col-item'>前房</view>
+        <view class='report-table-content-col-item'>虹膜及瞳孔</view>
+        <view class='report-table-content-col-item report-table-content-col-item-last'>晶状体</view>
+      </view>
+      <view class='report-table-content-col' style='width: 33.33%;'>
+        <view class='report-table-content-col-item' style='color:#333;font-weight:bold;font-size:28rpx;'>右眼</view>
+        <view class='report-table-content-col-item'>{{reportDetail.eyelid_r ? reportDetail.eyelid_r : "-"}}</view>
+        <view class='report-table-content-col-item'>{{reportDetail.conjunctiva_r ? reportDetail.conjunctiva_r : "-"}}</view>
+        <view class='report-table-content-col-item'>{{reportDetail.corneal_r ? reportDetail.corneal_r : "-"}}</view>
+        <view class='report-table-content-col-item'>{{reportDetail.front_r ? reportDetail.front_r : "-"}}</view>
+        <view class='report-table-content-col-item'>{{reportDetail.lris_pupil_r ? reportDetail.lris_pupil_r : "-"}}</view>
+        <view class='report-table-content-col-item report-table-content-col-item-last'>{{reportDetail.lens_r ? reportDetail.lens_r : "-"}}</view>
+      </view>
+      <view class='report-table-content-col report-table-content-col-last' style='width: 33.33%;'>
+        <view class='report-table-content-col-item' style='color:#333;font-weight:bold;font-size:28rpx;'>左眼</view>
+        <view class='report-table-content-col-item'>{{reportDetail.eyelid_l ? reportDetail.eyelid_l : "-"}}</view>
+        <view class='report-table-content-col-item'>{{reportDetail.conjunctiva_l ? reportDetail.conjunctiva_l : "-"}}</view>
+        <view class='report-table-content-col-item'>{{reportDetail.corneal_l ? reportDetail.corneal_l : "-"}}</view>
+        <view class='report-table-content-col-item'>{{reportDetail.front_l ? reportDetail.front_l : "-"}}</view>
+        <view class='report-table-content-col-item'>{{reportDetail.lris_pupil_l ? reportDetail.lris_pupil_l : "-"}}</view>
+        <view class='report-table-content-col-item report-table-content-col-item-last'>{{reportDetail.lens_l ? reportDetail.lens_l : "-"}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 眼底镜检查 -->
+  <view class='report-table'>
+    <view class='report-table-title'>
+      <image src='../../images/report_table.png'></image>
+      <text>眼底镜检查</text>
+    </view>
+    <view class='report-table-content'>
+      <view class='report-table-content-col report-table-content-col-title' style='width: 33.33%;'>
+        <view class='report-table-content-col-item'></view>
+        <view class='report-table-content-col-item'>视网膜</view>
+        <view class='report-table-content-col-item'>视盘</view>
+        <view class='report-table-content-col-item'>血管</view>
+        <view class='report-table-content-col-item report-table-content-col-item-last'>黄斑区</view>
+      </view>
+      <view class='report-table-content-col' style='width: 33.33%;'>
+        <view class='report-table-content-col-item' style='color:#333;font-weight:bold;font-size:28rpx;'>右眼</view>
+        <view class='report-table-content-col-item'>{{reportDetail.retina_r ? reportDetail.retina_r : "-"}}</view>
+        <view class='report-table-content-col-item'>{{reportDetail.video_disc_r ? reportDetail.video_disc_r : "-"}}</view>
+        <view class='report-table-content-col-item'>{{reportDetail.blood_vessel_r ? reportDetail.blood_vessel_r : "-"}}</view>
+        <view class='report-table-content-col-item report-table-content-col-item-last'>{{reportDetail.macular_region_r ? reportDetail.macular_region_r : "-"}}</view>
+      </view>
+      <view class='report-table-content-col report-table-content-col-last' style='width: 33.33%;'>
+        <view class='report-table-content-col-item' style='color:#333;font-weight:bold;font-size:28rpx;'>左眼</view>
+        <view class='report-table-content-col-item'>{{reportDetail.retina_l ? reportDetail.retina_l : "-"}}</view>
+        <view class='report-table-content-col-item'>{{reportDetail.video_disc_l ? reportDetail.video_disc_l : "-"}}</view>
+        <view class='report-table-content-col-item'>{{reportDetail.blood_vessel_l ? reportDetail.blood_vessel_l : "-"}}</view>
+        <view class='report-table-content-col-item report-table-content-col-item-last'>{{reportDetail.macular_region_l ? reportDetail.macular_region_l : "-"}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 眼底照片 -->
+  <view wx:if="{{reportDetail.img_r || reportDetail.img_l}}" class='report-table'>
+    <view class='report-table-title'>
+      <image src='../../images/report_image.png'></image>
+      <text>眼底照片</text>
+    </view>
+    <view class='report-table-content'>
+      <view class='report-table-content-img'>
+        <view class='report-table-content-img-pic'><image src='{{config.host + reportDetail.img_r}}'></image></view>
+        <view class='report-table-content-img-text'>（右眼）</view>
+      </view>
+      <view class='report-table-content-img'>
+        <view class='report-table-content-img-pic'><image src='{{config.host + reportDetail.img_l}}'></image></view>
+        <view class='report-table-content-img-text'>（左眼）</view>
+      </view>
+    </view>
+  </view>
+  <!-- 结论 -->
+  <view wx:if="{{strs.length>0}}" class='report-table'>
+    <view class='report-table-title'>
+      <image src='../../images/report_text.png'></image>
+      <text>结论</text>
+    </view>
+    <view class='report-table-content' style='display: block'>
+      <view wx:for="{{strs}}" class='report-table-content-text'>{{index + 1}}、{{item}}</view>
+    </view>
+  </view>
+</view>

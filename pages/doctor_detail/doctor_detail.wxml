@@ -1,0 +1,111 @@
+<!--pages/doctor_detail/doctor_detail.wxml-->
+<view class='doctor-detail'>
+  <view class='doctor-detail-base'>
+    <view class='doctor-detail-base-avatar'>
+      <image src='{{config.host + doctorInfo.photo}}'></image>
+    </view>
+    <view class='doctor-detail-base-name'>{{doctorInfo.d_name}}</view>
+    <view class='doctor-detail-base-post'>{{doctorInfo.title}}</view>
+    <image class='doctor-detail-base-bg' src='../../images/doctor_detail_bg.png'></image>
+  </view>
+  <view class='doctor-detail-like'>
+    <view class='doctor-detail-title'>
+      <image src='../../images/doctor_detail_like.png'></image>
+      <text>擅长</text>
+    </view>
+    <view class='doctor-detail-like-list'>
+      <view wx:for="{{doctorInfo.crux}}" class='doctor-detail-like-item'>{{item.crux}}</view>
+    </view>
+  </view>
+  <view class='doctor-detail-date'>
+    <view class='doctor-detail-date-nav'>
+      <view bindtap="changeNav" data-id="0" class='doctor-detail-date-nav-item {{currentNav == 0 ? "doctor-detail-date-nav-item-on" : ""}}'>本周</view>
+      <view bindtap="changeNav" data-id="1" class='doctor-detail-date-nav-item {{currentNav == 1 ? "doctor-detail-date-nav-item-on" : ""}}'>下周</view>
+      <view bindtap="changeNav" data-id="2" class='doctor-detail-date-nav-item {{currentNav == 2 ? "doctor-detail-date-nav-item-on" : ""}}'>下下周</view>
+    </view>
+    <view class='doctor-detail-date-list'>
+      <view class='doctor-detail-date-display doctor-detail-date-list-title'>
+        <view class='doctor-detail-date-item'>日</view>
+        <view class='doctor-detail-date-item'>一</view>
+        <view class='doctor-detail-date-item'>二</view>
+        <view class='doctor-detail-date-item'>三</view>
+        <view class='doctor-detail-date-item'>四</view>
+        <view class='doctor-detail-date-item'>五</view>
+        <view class='doctor-detail-date-item'>六</view>
+      </view>
+      <view class='doctor-detail-date-display'>
+        <view bindtap='chooseDate' data-val="{{item}}" data-index="{{index}}" wx:for="{{dateArray}}" wx:if="{{currentNav == 0 ? (index >= 0 && index <= 6) : currentNav == 1 ? (index >= 7 && index <= 13) : currentNav == 2 ? (index >= 14 && index <= 20) : false}}" class='doctor-detail-date-item {{currentChoose == item ? "doctor-detail-date-item-on" : "" }}' style="color:{{(index >= today.day && index <= today.day + 14) && (currentChoose != item) ? '#333' : ''}}">{{item == today.date ? "今天" : item}}</view>
+      </view>
+      <view class='doctor-detail-date-status'>
+        <view wx:for="{{timeList}}" wx:if="{{currentNav == 0 ? (index >= 0 && index <= 6) : currentNav == 1 ? (index >= 7 && index <= 13) : currentNav == 2 ? (index >= 14 && index <= 20) : false}}" class='doctor-detail-date-status-item' style="background:{{index < today.day || index > today.day + 14 ? '#fff' : item.status == '10' ? '#0d820a' : item.status == '20' ? '#ed5656' : item.status == '40' ? '#ed5656' : '#fff'}}">{{item.status == "10" ? "可约" : item.status == "20" ? "约满" :  item.status == "40" ? "特约" : ""}}</view>
+      </view>
+    </view>
+  </view>
+  <view class='doctor-detail-introduction'>
+    <view class='doctor-detail-title'>
+      <image src='../../images/doctor_detail_intro.png'></image>
+      <text>简介</text>
+    </view>
+    <view class='doctor-detail-introduction-content'>
+      {{doctorInfo.speciality}}
+    </view>
+  </view>
+  <view class='doctor-detail-comment'>
+    <view class='doctor-detail-title'>
+      <image src='../../images/doctor_detail_comment.png'></image>
+      <text>全部评论</text>
+    </view>
+    <view class='doctor-detail-comment-list'>
+      <view wx:for="{{commentList}}" class='doctor-detail-comment-item'>
+        <view class='doctor-detail-comment-item-message'>
+          <view class='doctor-detailcomment-item-message-avatar'><image src='{{item.user.photo}}'></image></view>
+          <view class='doctor-detail-comment-item-message-base'>
+            <view class='doctor-detail-comment-item-message-name'>{{item.user.w_name}}</view>
+            <view class='doctor-detail-comment-item-message-date'>{{item.create_time}}</view>
+          </view>
+        </view>
+        <view class='doctor-detail-comment-item-content'>
+            {{item.content}}
+        </view>
+      </view>
+      <!-- <view class='doctor-detail-comment-pagenation'>
+        <view class='doctor-detail-comment-pagenation-item doctor-detail-comment-pagenation-item-on'>1</view>
+        <view class='doctor-detail-comment-pagenation-item'>1</view>
+        <view class='doctor-detail-comment-pagenation-item'>1</view>
+        <view class='doctor-detail-comment-pagenation-item'>1</view>
+        <view class='doctor-detail-comment-pagenation-item'>1</view>
+        <view class='doctor-detail-comment-pagenation-deco'>...</view>
+        <view class='doctor-detail-comment-pagenation-item'>20</view>
+        <view class='doctor-detail-comment-pagenation-next'>下一页</view>
+      </view> -->
+    </view>
+  </view>
+
+
+  <view class='doctor-detail-btn-view'>
+    <view wx:if="{{!ifShowButton}}" bindtap='toAppointOL' class='doctor-detail-btn'>在线问诊</view>
+    <view wx:if="{{ifShowButton}}" class='doctor-detail-btn'><button open-type='contact' style='border:0;font-size: 30rpx;width:100%;height: 100%;line-height: 100rpx;'>进入客服</button></view>
+    <view bindtap='telToDoctor' class='doctor-detail-btn' style='background: #0064A0;color: #fff;'>电话预约</view>
+  </view>
+
+
+  <view wx:if="{{ifShowChooseTimer}}" class='doctor-detail-time'>
+    <view bindtap='hideChooseTimer' class='doctor-detail-time-bg'></view>
+    <view class='doctor-detail-timer'>
+      <view class='doctor-detail-timer-title'>选择诊所/时段</view>
+      <view class='doctor-detail-timer-message'>
+        <view class='doctor-detail-timer-message-avatar'><image src='{{config.host + doctorInfo.photo}}'></image></view>
+        <view class='doctor-detail-timer-base'>
+          <view class='doctor-detail-timer-base-title'>
+            <view>{{storeMessage.name}}</view>
+            <view style='margin-left: auto;color: #999;'>上午/下午</view>
+          </view>
+          <view class='doctor-detail-timer-base-list'>
+            <view wx:for="{{appointTimeList}}" bindtap='chooseAppointHour' data-time="{{item}}" class='doctor-detail-timer-base-item' style='{{item == currrentSelectHour ? "background: #0064a0;color: #fff;" : ""}}'>{{item}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+</view>

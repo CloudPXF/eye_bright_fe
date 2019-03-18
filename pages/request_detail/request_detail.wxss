@@ -1,0 +1,119 @@
+/* pages/request_detail/request_detail.wxss */
+.request-detail-page {
+  padding: 0 36rpx;
+  padding-bottom: 120rpx;
+}
+.request-detail-question {
+  margin-top: 0rpx;
+  padding: 36rpx 0;
+  border-bottom: 2rpx solid #f4f4f4;
+}
+.request-detail-question-text {
+  font-size: 30rpx;
+  color: #333;
+  line-height: 54rpx;
+}
+.request-detail-question-text image {
+  width: 42rpx;
+  height: 42rpx;
+  margin-right: 14rpx;
+  position: relative;
+  top: 8rpx;
+}
+.request-detail-question-text text {
+  word-break: break-all;
+}
+.request-detail-question-img {
+  display: flex;
+  margin-top: 34rpx;
+  margin-bottom: 36rpx;
+}
+.request-detail-question-img image {
+  width: 200rpx;
+  height: 200rpx;
+  margin-left: 36rpx;
+}
+.request-detail-question-img image:first-child{
+  margin-left: 0;
+}
+.request-detial-question-word {
+  display: flex;
+}
+.request-detail-question-word-item {
+  padding: 12rpx 17rpx;
+  font-size: 24rpx;
+  color: #666;
+  background: #f4f4f4;
+  border-radius: 10rpx;
+  margin-left: auto;
+}
+.request-detail-answer {
+  margin-top: 40rpx;
+}
+.request-detail-answer-text {
+  font-size: 28rpx;
+  color: #666;
+  line-height: 54rpx;
+}
+.request-detail-answer-text image {
+  width: 42rpx;
+  height: 38rpx;
+  margin-right: 14rpx;
+  position: relative;
+  top: 8rpx;
+}
+.request-detail-answer-text text {
+  word-break: break-all;
+}
+.request-detail-answer-img {
+
+}
+.request-detail-answer-img image {
+  width: 100%;
+  margin-top: 20rpx;
+}
+.request-detail-doctor {
+  box-shadow:0px 3rpx 10rpx 0px rgba(0, 0, 0, 0.1);
+  height: 260rpx;
+  display: flex;
+  align-items: center;
+  border-radius: 10rpx;
+  margin-top: 120rpx;
+}
+.request-detail-doctor-avatar {
+  margin-left: 20rpx;
+}
+.request-detail-doctor-avatar image {
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 10rpx;
+}
+.request-detail-doctor-message {
+  margin-left: 40rpx;
+}
+.request-detail-doctor-message-name {
+  font-size: 30rpx;
+  color: #0064A0;
+  font-weight: bold;
+}
+.request-detial-doctor-message-name text {
+  font-size: 28rpx;
+  margin-left: 19rpx;
+  font-weight: normal;
+}
+.request-detail-doctor-message-ablity {
+  font-size: 24rpx;
+  color: #666;
+  margin-right: 33rpx;
+  margin-top: 28rpx;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.request-detail-doctor-message-ablity text {
+  color: #0064A0;
+}

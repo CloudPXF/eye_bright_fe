@@ -1,0 +1,42 @@
+<!--pages/my_question/myQuestion.wxml-->
+<view class='my-quetsion-page'>
+  <view wx:if="{{identify == 1}}" class='my-quetsion-nav'>
+    <view bindtap='changeNav' data-id="0" class='my-question-nav-item {{currentNav == 0 ? "my-question-nav-item-on" : ""}}'>
+      已发出 
+    </view>
+    <view bindtap='changeNav' data-id="1" class='my-question-nav-item {{currentNav == 1 ? "my-question-nav-item-on" : ""}}'>
+      已收到
+    </view>
+  </view>
+  <view class='my-question-list'>
+    <view wx:for="{{currentNav == 0 ? questionList : questionListA}}" class='my-question-item'>
+      <view class='my-question-item-status'>
+        <view class='my-question-item-status-time'>{{item.create_time}}</view>
+        <view class='my-question-item-status-text'>{{item.status == "20" ? "已回复" : "待回复"}}</view>
+      </view>
+      <view class='my-question-item-question'>
+        <image src='../../images/question.png'></image>
+        <text>{{item.problem}}</text>
+      </view>
+      <view class='my-question-item-question-img'>
+        <image wx:if="{{item.pimg1}}" data-url="{{config.host +item.pimg1}}" bindtap='previewImg' src='{{config.host + item.pimg1}}'></image>
+        <image wx:if="{{item.pimg2}}" data-url="{{config.host +item.pimg2}}" bindtap='previewImg' src='{{config.host + item.pimg2}}'></image>
+        <image wx:if="{{item.pimg3}}" data-url="{{config.host +item.pimg3}}" bindtap='previewImg' src='{{config.host + item.pimg3}}'></image>
+      </view>
+      <view class='line'></view>
+      <view wx:if="{{item.answer}}" class='my-question-item-answer'>
+        <image src='../../images/answer.png'></image>
+        <text>{{item.answer}}</text>
+      </view>
+      <view class='my-question-item-question-img'>
+        <image wx:if="{{item.aimg1}}" data-url="{{config.host +item.aimg1}}" bindtap='previewImg' src='{{config.host + item.aimg1}}'></image>
+        <image wx:if="{{item.aimg2}}" data-url="{{config.host +item.aimg2}}" bindtap='previewImg' src='{{config.host + item.aimg2}}'></image>
+        <image wx:if="{{item.aimg3}}" data-url="{{config.host +item.aimg3}}" bindtap='previewImg' src='{{config.host + item.aimg3}}'></image>
+      </view>
+      <view class='my-question-item-btn-view'>
+        <view wx:if="{{item.status=='10' && identify == 1 && currentNav == 1}}" bindtap='resposeQuestion' data-id="{{item.id}}" class='my-question-item-btn'>回复</view>
+        <view wx:elif="{{item.answer}}" bindtap='toDetail' data-id='{{item.id}}' class='my-question-item-btn'>详情</view>
+      </view>
+    </view>
+  </view>
+</view>

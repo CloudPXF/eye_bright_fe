@@ -1,0 +1,84 @@
+/* pages/report/report.wxss */
+.report-page {
+  padding-bottom:80rpx;
+}
+.report-table {
+  width: 678rpx;
+  margin-left: auto;
+  margin-right: auto;
+  background: #fff;
+  box-shadow: 0 3rpx 10rpx 0 rgba(0, 0, 0, 0.1);
+  border-radius: 10rpx;
+  margin-top: 26rpx;
+}
+.report-table-title {
+  display: flex;
+  align-items: center;
+  height: 60rpx;
+  background: #f7f7f7;
+  border-top-left-radius: 10rpx;
+  border-top-right-radius: 10rpx;
+}
+.report-table-title image {
+  width: 36rpx;
+  height: 36rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+.report-table-title text {
+  font-size: 28rpx;
+  color: #333;
+}
+.report-table-content {
+  padding: 40rpx 20rpx;
+  border-bottom-left-radius: 10rpx;
+  border-bottom-right-radius: 10rpx;
+  display: flex;
+}
+.report-table-content-col {
+  border-right: 2rpx solid #f4f4f4;
+  font-size: 26rpx;
+  color: #0064A0;
+}
+.report-table-content-col-last {
+  border-right: 0;
+}
+.report-table-content-col-item {
+  border-top: 2rpx solid #f4f4f4;
+  height: 70rpx;
+  line-height: 70rpx;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.report-table-content-col-item-last {
+  border-bottom: 2rpx solid #f4f4f4;
+}
+.report-table-content-col-title {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.report-table-content-img {
+  width: 50%;
+}
+.report-table-content-img-pic {
+  width: 100%;
+  display: flex;
+}
+.report-table-content-img-pic image {
+  width: 260rpx;
+  height: 260rpx;
+  margin-left: auto;
+  margin-right: auto;
+}
+.report-table-content-img-text {
+  text-align: center;
+  font-size: 28rpx;
+  color: #333;
+  margin-top: 20rpx;
+}
+.report-table-content-text {
+  font-size: 26rpx;
+  color: #0064A0;
+}

@@ -1,0 +1,63 @@
+/* pages/my_report/myReport.wxss */
+.my-report-page {
+  background: #f4f4f4;
+  min-height: 100vh;
+}
+.report-list {
+  padding-top: 20rpx;
+}
+.report-item {
+  display: flex;
+  align-items: center;
+  height: 200rpx;
+  margin-bottom: 12rpx;
+  position: relative;
+} 
+.report-item-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.report-item-message {
+  margin-left: 54rpx;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+.report-item-message-name {
+  font-size: 30rpx;
+  color: #333;
+  font-weight: bold;
+}
+.report-item-message-sex {
+  font-size: 26rpx;
+  color: #666;
+  margin-top: 20rpx;
+}
+.report-item-title {
+  margin-left: 115rpx;
+  position: relative;
+  z-index: 2;
+}
+.report-item-title-text {
+  font-size: 32rpx;
+  color: #333;
+  font-weight: bold;
+}
+.report-item-title-time {
+  font-size: 26rpx;
+  color: #666;
+  margin-top: 20rpx;
+}
+
+.report-null {
+  text-align: center;
+}
+.report-null image {
+  width: 323rpx;
+  height: 314rpx;
+  margin-top: 356rpx;
+}

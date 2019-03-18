@@ -1,0 +1,31 @@
+<!--pages/my_appoint/my_appoint.wxml-->
+<view class='my-appoint'>
+  <view class='appointment-list'>
+    <view wx:for="{{appointmentList}}" bindtap='toAppointmentDetail' data-id="{{item.id}}" class='appointment-item'>
+      <view class='appointment-item-title'>
+        <view class='appointment-item-title-before'>就诊人：</view>
+        <view class='appointment-item-title-content'>{{item.name}}</view>
+        <view class='appointment-item-title-status' style='color: {{item.status == "10" ? "#0D820A" : item.status == "20" ? "#0064A0" : item.status == "30" ? "#999999" : item.status == "40" ? "#333333" : ""}}'>{{item.status == "10" ? "受理中" : item.status == "20" ? "已取消" : item.status == "30" ? "已预约" : item.status == "40" ? "已就诊" : "已过期"}}</view>
+      </view>
+      <view class='appointment-item-content'>
+        <view class='appointment-item-content-message'>
+          <view class='appointment-item-content-item'>
+            <view class='appointment-item-content-before'>时间：</view>
+            <view class='appointment-item-content-text'>{{item.about_date}} {{item.about_time}}</view>
+          </view>
+          <view class='appointment-item-content-item' style='margin-top: 20rpx;margin-bottom: 20rpx;'>
+            <view class='appointment-item-content-before'>诊所：</view>
+            <view class='appointment-item-content-text'>{{item.store.name}}</view>
+          </view>
+          <view class='appointment-item-content-item'>
+            <view class='appointment-item-content-before'>医生：</view>
+            <view class='appointment-item-content-text'>{{item.doctor_info.d_name}}</view>
+          </view>
+        </view>
+        <view class='appointment-item-content-to'>
+          <image src='../../images/to_gray.png'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
